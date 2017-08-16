@@ -9,11 +9,11 @@
     A Xamarin.Forms Inspector
     <br>
     <br>
-    <a href="https://uisleuth-downloads.herokuapp.com/">Download</a>
+    <a href="https://uisleuth-downloads.herokuapp.com/">Desktop Client Download</a>
+    &middot;
+    <a href="https://www.nuget.org/packages/UISleuth/">NuGet Package Download</a>
     &middot;
     <a href="https://github.com/michaeled/uisleuth/wiki/Installation-Guide">Installation Guide</a>
-    &middot;
-    <a href="https://github.com/michaeled/uisleuth/projects">Project Roadmap</a>
     &middot;
     <a href="https://github.com/michaeled/uisleuth/wiki">Wiki</a>
   </p>
@@ -23,6 +23,25 @@
 # What is UI Sleuth?
 
 UI Sleuth is a Xamarin.Forms debugging tool. If you’ve ever made a web site, it’s similar to Microsoft’s F12 tools or Chrome Developer Tools. You can use it to efficiently track down layout issues, prototype a new design, and remotely control a device.
+
+# Repository Structure
+
+This repository contains the source code to UI Sleuth. The official binaries can be found above.
+Notable project folders are:
+
+```
+uisleuth/
+├── Desktop/
+│   ├── app/
+│   └── src/
+└── Mobile/Source/
+    ├── UISleuth/
+    ├── UISleuth.Android/
+    ├── UISleuth.Android.App/
+    ├── UISleuth.iOS/
+    └── UISleuth.iOS.App/
+```
+
 
 # Documentation
 
