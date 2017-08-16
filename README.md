@@ -9,6 +9,8 @@
     A Xamarin.Forms Inspector
     <br>
     <br>
+    <a href="https://uisleuth-downloads.herokuapp.com/">Download</a> (OS autodetected)
+    &middot;
     <a href="https://github.com/michaeled/uisleuth/wiki/Installation-Guide">Installation Guide</a>
     &middot;
     <a href="https://github.com/michaeled/uisleuth/projects">Project Roadmap</a>
