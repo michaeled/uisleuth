@@ -27,19 +27,19 @@ UI Sleuth is a Xamarin.Forms debugging tool. If you’ve ever made a web site, i
 # Repository Structure
 
 This repository contains the source code to UI Sleuth. The official binaries can be found above.
-Notable project folders are:
+Notable project folders include:
 
 ```
 uisleuth/
 ├── Desktop/
 │   ├── app/
+│   ├── config/
+│   ├── defaults/
 │   └── src/
 └── Mobile/Source/
     ├── UISleuth/
     ├── UISleuth.Android/
-    ├── UISleuth.Android.App/
-    ├── UISleuth.iOS/
-    └── UISleuth.iOS.App/
+    └── UISleuth.iOS/
 ```
 
 
