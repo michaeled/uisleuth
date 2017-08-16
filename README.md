@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://www.uisleuth.com">
-    <img src="docs/images/logo.png" width="256" height="256">
+    <img src="docs/images/logo.png" width="128" height="128">
   </a>
 
   <h3 align="center">UI Sleuth</h3>
@@ -8,15 +8,12 @@
   <p align="center">
     A Xamarin.Forms Inspector
     <br>
-    <a href="#"><strong>Explore UI Sleuth docs &raquo;</strong></a>
     <br>
-    <br>
-    <a href="#">Installation Guide</a>
+    <a href="https://github.com/michaeled/uisleuth/wiki/Installation-Guide">Installation Guide</a>
     &middot;
-    <a href="#">Project Roadmap</a>
+    <a href="https://github.com/michaeled/uisleuth/projects">Project Roadmap</a>
     &middot;
-    <a href="#">Wiki</a>
+    <a href="https://github.com/michaeled/uisleuth/wiki">Wiki</a>
   </p>
 </p>
-
 <br>
