@@ -31,12 +31,12 @@ Notable project folders include:
 
 ```
 uisleuth/
-├── Desktop/
+├── Desktop/ (Electron App)
 │   ├── app/
 │   ├── config/
 │   ├── defaults/
 │   └── src/
-└── Mobile/Source/
+└── Mobile/Source/ (.NET Project)
     ├── UISleuth/
     ├── UISleuth.Android/
     └── UISleuth.iOS/
