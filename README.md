@@ -19,3 +19,13 @@
   </p>
 </p>
 <br>
+
+# What is UI Sleuth?
+
+UI Sleuth is a Xamarin.Forms debugging tool. If you’ve ever made a web site, it’s similar to Microsoft’s F12 tools or Chrome Developer Tools. You can use it to efficiently track down layout issues, prototype a new design, and remotely control a device.
+
+# Documentation
+
+This project site is a work in progress. Documentation is available on the [project's Wiki](https://github.com/michaeled/uisleuth/wiki).
+
+// [@mykldavis](https://twitter.com/mykldavis)
