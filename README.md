@@ -42,9 +42,24 @@ uisleuth/
     └── UISleuth.iOS/
 ```
 
+# What can you do with this code?
+
+UI Sleuth could _easily_ be more than a "UI Inspector." I can see it powering best practice analyzers, UI automation engines, remote app viewer services, and more. If you want to ditch the electron desktop client, go for it. Create a new, custom app that communicates with your app server. 
+
+## How can it do that?
+
+The library that you add to your Xamarin.Forms application is a workflow engine.
+
+The desktop client communicates with your mobile app via WebSockets and a simple JSON protocol. Once you understand that, you know that the desktop client and mobile app aren't irrevocably tied together. 
+
+I chose WebSockets because at the beginning of this project project, Xamarin.Forms was a UI toolkit for mobile apps. Now that we're seeing Xamarin.Forms target WPF, GTK#, and macOS a whole new level of possibilites are emerging. So, let's say you no longer want to use IPC instead of WebSockets for out-of-process communication. That's great; start by extending the `InspectorSocket` type.
 
 # Documentation
 
-This project site is a work in progress. Documentation is available on the [project's Wiki](https://github.com/michaeled/uisleuth/wiki).
+This project site is a work in progress. 
+I currently have minimal documentation explaining the API. However, the majority of the wiki pages I write in the beginning will cover the workflow engine.
 
-// [@mykldavis](https://twitter.com/mykldavis)
+You can find all the documentation on the [project's Wiki](https://github.com/michaeled/uisleuth/wiki).
+
+Enjoy!
+[@mykldavis](https://twitter.com/mykldavis)
