@@ -24,9 +24,9 @@
 
 UI Sleuth is a Xamarin.Forms debugging tool. If you’ve ever made a web site, it’s similar to Microsoft’s F12 tools or Chrome Developer Tools. You can use it to efficiently track down layout issues, prototype a new design, and remotely control a device.
 
-*my favorite idea*
+**my favorite idea**
 
-Peek at the root level foldered named "Server." It contains a simple implementation for creating a remote tunneling service to join the desktop client and mobile app together. I never finished this project, but it was going to allow you to easily connect and inspect a beta testers device, while they're encountering a bug!
+Peek at the top-level foldered named "Server." It contains a simple implementation for creating a remote tunneling service to join the desktop client and mobile app together. I never finished this project, but it was going to allow you to easily connect and inspect a beta testers device, while they're encountering a bug!
 
 # What can you do with this code?
 
