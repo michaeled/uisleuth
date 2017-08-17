@@ -48,9 +48,13 @@ UI Sleuth could _easily_ be more than a "UI Inspector." I can see it powering be
 
 ## How can it do that?
 
-The library that you add to your Xamarin.Forms application is a workflow engine.
-
 The desktop client communicates with your mobile app via WebSockets and a simple JSON protocol. Once you understand that, you know that the desktop client and mobile app aren't irrevocably tied together. 
+
+The library that you add to your Xamarin.Forms application is a workflow engine. It's implemented using a `BlockingCollection` that dispatches incoming messages to listeners, called `Reaction`s. In a nutshell, reactions read the incoming message, take an action, and return a response. 
+
+Here's an example:
+
+## Why WebSockets?
 
 I chose WebSockets because at the beginning of this project project, Xamarin.Forms was a UI toolkit for mobile apps. Now that we're seeing Xamarin.Forms target WPF, GTK#, and macOS a whole new level of possibilites are emerging. So, let's say you no longer want to use IPC instead of WebSockets for out-of-process communication. That's great; start by extending the `InspectorSocket` type.
 
