@@ -9,9 +9,9 @@
     A Xamarin.Forms Inspector
     <br>
     <br>
-    <a href="https://uisleuth-downloads.herokuapp.com/">Desktop Client Download</a>
+    <a href="https://uisleuth-downloads.herokuapp.com/">Download Desktop Client</a>
     &middot;
-    <a href="https://www.nuget.org/packages/UISleuth/">NuGet Package Download</a>
+    <a href="https://www.nuget.org/packages/UISleuth/">Download NuGet Package</a>
     &middot;
     <a href="https://github.com/michaeled/uisleuth/wiki/Installation-Guide">Installation Guide</a>
     &middot;
