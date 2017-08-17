@@ -24,6 +24,10 @@
 
 UI Sleuth is a Xamarin.Forms debugging tool. If you’ve ever made a web site, it’s similar to Microsoft’s F12 tools or Chrome Developer Tools. You can use it to efficiently track down layout issues, prototype a new design, and remotely control a device.
 
+*my favorite idea*
+
+Peek at the root level foldered named "Server." It contains a simple implementation for creating a remote tunneling service to join the desktop client and mobile app together. I never finished this project, but it was going to allow you to easily connect and inspect a beta testers device, while they're encountering a bug!
+
 # What can you do with this code?
 
 UI Sleuth could _easily_ be more than a "UI Inspector." I can see the .NET library powering best practice analyzers, UI automation engines, remote app viewer services, and more. If you want to ditch the electron desktop client, go for it. Create a new, custom app that communicates with your app server. 
@@ -84,15 +88,22 @@ namespace UISleuth.Messages
 Reaction.Register<ScreenShotRequest, ScreenShotReaction>();
 ```
 
-### 4) Send screenshot request via the WebSocket
+### 4) Request a screenshot via WebSocket
 
 ```
-websocket.send("{action: 'ScreenshotRequest'}");
+websocket.send("{action: 'ScreenShotRequest'}");
 ```
+
+The `action` property above matches the C# type name of `ScreenShotRequest`.
+Additional parameters can be present in this message. Utility methods exist to easily deserialize these messages into the appropriate .NET objects.
+
+\* _Request types are optional. You may chose to send an OkResponse_
 
 ## Why WebSockets?
 
-I chose WebSockets because at the beginning of this project project, Xamarin.Forms was a UI toolkit for mobile apps. Now that we're seeing Xamarin.Forms target WPF, GTK#, and macOS a whole new level of possibilites are emerging. So, let's say you no longer want to use IPC instead of WebSockets for out-of-process communication. That's great; start by extending the `InspectorSocket` type.
+When this project started, Xamarin.Forms was a UI toolkit for iOS, Android, and Windows Phone apps only. I needed a simple, out of process way to communicate with external emulators and devices. WebSockets just made sense.
+
+Now that we're seeing Xamarin.Forms target WPF, GTK#, and macOS a whole new level of possibilites for UI Sleuth are emerging. Let's imagine your new client wants to communicate with your Xamarin.Forms app via IPC instead of WebSockets for out-of-process communication. That's great; start by extending the `InspectorSocket` type and register it with the DI service.
 
 # Documentation
 
