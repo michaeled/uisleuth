@@ -37,7 +37,7 @@ The library that you add to your Xamarin.Forms application is a workflow engine.
 Here's an example.
 Below is the code handles the "Take Screenshot Request" from the desktop client.
 
-### 1) We define the request and response types
+### 1) Define the request and response* types
 
 ```
 namespace UISleuth.Messages
@@ -51,7 +51,7 @@ namespace UISleuth.Messages
 }
 ```
 
-### 2) We create a custom reaction class
+### 2) Create a custom reaction class
 
 ```
     internal class ScreenShotReaction : Reaction
@@ -78,10 +78,16 @@ namespace UISleuth.Messages
     }
 ```
 
-### 3) We associate message request type to the reaction
+### 3) Associate the request type to the reaction
 
 ```
 Reaction.Register<ScreenShotRequest, ScreenShotReaction>();
+```
+
+### 4) Send screenshot request via the WebSocket
+
+```
+websocket.send("{action: 'ScreenshotRequest'}");
 ```
 
 ## Why WebSockets?
