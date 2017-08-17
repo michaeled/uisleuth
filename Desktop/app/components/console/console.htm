@@ -1,0 +1,30 @@
+<div id="terminalhost"></div>
+
+<script>
+    $('#terminalhost').terminal({
+        echo: function(arg1) {
+            this.echo(arg1);
+        },
+        calc: {
+            add: function(a, b) {
+                this.echo(a + b);
+            },
+            sub: function(a, b) {
+                this.echo(a - b);
+            }
+        }
+    }, {
+        prompt: '>',
+        greetings: `
+██╗   ██╗██╗    ███████╗██╗     ███████╗██╗   ██╗████████╗██╗  ██╗
+██║   ██║██║    ██╔════╝██║     ██╔════╝██║   ██║╚══██╔══╝██║  ██║
+██║   ██║██║    ███████╗██║     █████╗  ██║   ██║   ██║   ███████║
+██║   ██║██║    ╚════██║██║     ██╔══╝  ██║   ██║   ██║   ██╔══██║
+╚██████╔╝██║    ███████║███████╗███████╗╚██████╔╝   ██║   ██║  ██║
+ ╚═════╝ ╚═╝    ╚══════╝╚══════╝╚══════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝           
+
+ Version 1.0 (R1); Michael Davis 2016.
+ Type 'help' for more information.                                   
+`
+    });
+</script>

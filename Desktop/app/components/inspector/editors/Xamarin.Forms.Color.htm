@@ -1,0 +1,21 @@
+<div class="form-group pad-btm">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">{{editor.type}}</small>
+        <ng-include src="'components/inspector/editors/shared/_toggle.possibles.htm'"></ng-include>
+    </label>
+    <div class="col-md-6 control-editor">
+        <color-picker event-api="editor.config.color" ng-model="editor.value"></color-picker>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+
+        <ng-show ng-show="editor.showPossibles" class="color-editor">
+            <select ng-readonly="editor.readonly" id="cp-{{$index}}" class="selectpicker mar-top">
+                <option value="{{possible}}" data-content="<span style='background-color: {{possible}}' class='possible-color'>&nbsp;</span> {{possible}}" ng-repeat="possible in editor.possibles"></option>
+            </select>
+        </ng-show>
+    </div>
+</div>

@@ -1,0 +1,17 @@
+<uis-dialog show="{{about.show}}" id="about-dialog">
+    <div class="text-center">
+        <p><img style="width: 128px" src="components/global/logo.png" /></p>
+        <p>
+            UI Sleuth v{{about.version}}
+            <br> by bitsleuths, LLC.
+            <br>
+            <a href="http://www.uisleuth.com/">https://www.uisleuth.com</a>
+        </p>
+    </div>
+
+    <hr class="licenses-divider">
+
+    <div id="licenses-container">
+        <ng-include src="'./components/help/licenses.htm'"></ng-include>
+    </div>
+</uis-dialog>

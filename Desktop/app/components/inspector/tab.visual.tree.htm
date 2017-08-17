@@ -1,0 +1,34 @@
+<script type="text/ng-template" id="node_actions.html">
+    <div ng-controller="UltraBarController as ubctrl" class="action btn-group">
+        <button ng-click="ubctrl.show($event)" class="pad-no btn btn-transparent ultrabar-toggle" type="button">
+		    <span class="ico glyphicon glyphicon-option-horizontal">
+		</button>
+    </div>
+</script>
+
+<script type="text/ng-template" id="nodes_renderer.html">
+    <div tabindex="1" ng-keyup="vt.keypress($event, node)" data-nodrag="{{$parentNodeScope == null}}" ng-class="{'active': vt.selected === node}" class="vt-node-container" ng-click="vt.onNodeClicked(node)">
+        <div ui-tree-handle>
+        </div>
+        <label>
+            {{node.type}}
+        </label>
+        <ng-include class="actions" src="'node_actions.html'"></ng-include>
+    </div>
+
+    <ol ui-tree-nodes ng-model="node.children">
+        <li ng-repeat="node in node.children" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+    </ol>
+</script>
+
+<div ng-controller="VisualTreeTabController as vt">
+    <ng-if ng-if="vt.tree">
+        <ng-include src="'./components/inspector/tab.visual.tree.toolbar.htm'"></ng-include>
+
+        <div ui-tree="vt.options">
+            <ol ui-tree-nodes ng-model="vt.tree">
+                <li ng-repeat="node in vt.tree" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+            </ol>
+        </div>
+    </ng-if>
+</div>

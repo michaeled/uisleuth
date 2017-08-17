@@ -1,0 +1,16 @@
+<div ng-controller="EventsTabController as evtsctrl">
+    <ul class="list-group bg-trans">
+        <li ng-repeat="e in evtsctrl.events | orderBy:'name'" class="list-group-item">
+            <div class="item">
+                <span>{{e.name}}</span>
+                <div class="modifiers">
+                    <span ng-class="{'yes': e.isPublic}" class="glyphicon glyphicon-wrench" data-toggle="tooltip" title="Public"></span>
+                    <span ng-class="{'yes': e.isFamily}" class="glyphicon glyphicon-star" data-toggle="tooltip" title="Protected"></span>
+                    <span ng-class="{'yes': e.isFamilyOrAssembly}" class="glyphicon glyphicon-heart-empty" data-toggle="tooltip" title="Internal"></span>
+                    <span class="glyphicon glyphicon-lock" data-toggle="tooltip" title="Private"></span>
+                    <span ng-class="{'yes': e.isStatic}" class="glyphicon glyphicon-asterisk" data-toggle="tooltip" title="Static"></span>
+                </div>
+            </div>
+        </li>
+    </ul>
+</div>

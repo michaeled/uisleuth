@@ -1,0 +1,72 @@
+<div ng-controller="VisualTreeTabToolbarController as vtbarctrl" class="mar-btm">
+
+    <div class="btn-group">
+
+        <!-- toggle btn -->
+        <button ng-click="vtbarctrl.toggleSelectable()" ng-class="['btn btn-transparent btn-active-dark', {'active': vtbarctrl.selectable}]" type="button">
+            <span data-container="body" data-toggle="tooltip" title="Canvas Elements Selectable" class="glyphicon glyphicon-hand-up"></span>
+        </button>
+
+        <!-- toggle btn -->
+        <button ng-click="vtbarctrl.toggleTouchable()" ng-class="['btn btn-transparent btn-active-dark', {'active': vtbarctrl.touchable}]" type="button">
+            <span data-container="body" data-toggle="tooltip" title="Send Touch Events" class="glyphicon glyphicon-flash"></span>
+        </button>
+
+        <!-- selection highlight color -->
+        <div class="btn-group">
+            <button class="btn btn-transparent dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span data-container="body" data-toggle="tooltip" title="Highlight Color" class="glyphicon glyphicon-pencil"></span>
+                <span class="toggle-ico glyphicon glyphicon-triangle-bottom"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a ng-click="vtbarctrl.changeHighlightColor('red')" href="">
+                        <span style='background-color: red' class='possible-color'>&nbsp;</span> Red
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="vtbarctrl.changeHighlightColor('green')" href="">
+                        <span style='background-color: green' class='possible-color'>&nbsp;</span> Green
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="vtbarctrl.changeHighlightColor('blue')" href="">
+                        <span style='background-color: blue' class='possible-color'>&nbsp;</span> Blue
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="vtbarctrl.changeHighlightColor('yellow')" href="">
+                        <span style='background-color: yellow' class='possible-color'>&nbsp;</span> Yellow
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- move -->
+        <!--<div class="btn-group">
+            <button class="btn btn-transparent dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+                <span data-container="body" data-toggle="tooltip" title="Axis Lock" class="glyphicon glyphicon-move"></span>
+                <span class="toggle-ico glyphicon glyphicon-triangle-bottom"></span>
+            </button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a ng-click="vtbarctrl.lockMovementX()">
+                        Lock X Axis
+                        <span ng-show="vtbarctrl.lockx">&#10004;</span>
+                    </a>
+                </li>
+                <li>
+                    <a ng-click="vtbarctrl.lockMovementY()">
+                        Lock Y Axis
+                        <span ng-show="vtbarctrl.locky">&#10004;</span> 
+                    </a>
+                </li>
+            </ul>
+        </div>-->
+
+        <!-- refresh button -->
+        <button ng-click="vtbarctrl.refresh()" data-toggle="tooltip" title="Refresh" class="btn btn-transparent">
+            <span class="glyphicon glyphicon-refresh"></span>
+        </button>
+    </div>
+</div>

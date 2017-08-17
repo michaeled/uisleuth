@@ -1,0 +1,26 @@
+<div id="demo-set" class="demo-set">
+    <div id="demo-set-body" class="demo-set-body collapse">
+        <div class="pad-hor bord-btm clearfix">
+            <div class="pull-right pad-top">
+                <button ng-click="main.onCloseMegaMenu()" data-toggle="collapse" data-target="#demo-set-body" id="demo-btn-close-settings" class="btn btn-trans">
+                    <i class="pci-cross pci-circle icon-lg"></i>
+                </button>
+            </div>
+            <div class="media">
+                <div class="media-left">
+                    <i class="demo-pli-gear icon-2x"></i>
+                </div>
+                <div class="media-body">
+                    <span class="text-semibold text-lg text-main">Customize</span>
+                    <p class="text-muted text-sm">Change device settings, types, categories, and more...</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="mm-body" class="demo-set-content clearfix">
+            <ng-include id="mm-types-container" class="pad-all" src="'./components/header/types.htm'"></ng-include>
+            <ng-include id="mm-categories-container" class="pad-all bg-gray-light" src="'./components/header/categories.htm'"></ng-include>
+        </div>
+    </div>
+    <button ng-click="main.onCloseMegaMenu()" id="demo-set-btn" class="btn" data-toggle="collapse" data-target="#demo-set-body"><i class="demo-psi-gear icon-lg"></i></button>
+</div>

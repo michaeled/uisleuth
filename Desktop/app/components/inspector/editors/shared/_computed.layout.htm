@@ -1,0 +1,39 @@
+<article class="computed-dims">
+    <section class="top padding">
+        <span class="desc">padding</span>
+        <div class="left"></div>
+        <div class="center">{{overctrl.padding.top.value || 0}}</div>
+        <div class="right"></div>
+    </section>
+    <section class="center padding">
+        <div class="left">{{overctrl.padding.left.value || 0}}</div>
+        <div class="center">
+            <section class="top margin">
+                <span class="desc">margin</span>
+                <div class="left"></div>
+                <div class="center">{{overctrl.margin.top.value || 0}}</div>
+                <div class="right"></div>
+            </section>
+            <section class="center margin">
+                <div class="left">{{overctrl.margin.left.value || 0}}</div>
+                <div class="center">
+                    <section class="size">
+                        <span class="desc">size</span> {{overctrl.width.value | number: 0}} x {{overctrl.height.value | number: 0}}
+                    </section>
+                </div>
+                <div class="right">{{overctrl.margin.right.value || 0}}</div>
+            </section>
+            <section class="bottom margin">
+                <div class="left"></div>
+                <div class="center">{{overctrl.margin.bottom.value || 0}}</div>
+                <div class="right"></div>
+            </section>
+        </div>
+        <div class="right">{{overctrl.padding.right.value || 0}}</div>
+    </section>
+    <section class="bottom padding">
+        <div class="left"></div>
+        <div class="center">{{overctrl.padding.bottom.value || 0}}</div>
+        <div class="right"></div>
+    </section>
+</article>

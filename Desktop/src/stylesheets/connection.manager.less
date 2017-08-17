@@ -1,0 +1,281 @@
+.connect-container {
+  color: #989898;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  height: 100vh;
+  transform: translateY(-4em);
+
+  .no-devices a {
+    text-decoration: underline;
+  }
+
+  #id-copylink {
+    color: #989898;
+    &:hover {
+      text-decoration: underline;
+    }
+  }  
+  
+  .connect-widget {
+    text-align: center;
+    width: 360px;
+    min-width: 360px;
+
+    .logo {
+      width: 175px;
+      margin-bottom: 30px;
+    }
+
+    .form-container {
+      position: relative;
+      z-index: 1;
+      background: #FFFFFF;
+      max-width: 360px;
+      text-align: center;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+      
+      header {
+        display: flex;
+        justify-content: center;
+
+        a.tab {
+          flex: 2;
+          display: inline-block;
+          padding: 10px;
+
+          background: #ececec;
+          color: #949494;
+
+          position: relative;
+
+          .overhang {
+            display: none;
+          }
+
+          &.active {
+            background: #fff;
+            color: #737373;
+
+            .overhang {
+              position: absolute;
+              height: 10px;
+              top: -5px;
+              display: inline-block;
+              background: #fff;
+              left: 0;
+              right: 0;
+            }
+          }
+        }
+      }
+
+      .body {
+        padding: 15px;
+        min-height: 298px;
+        
+        .page {
+          display: none;
+
+          &.active {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+}
+
+.connect-container .body .local {
+  h2 {
+      margin: 0;
+      padding: 0 0 5px 0;
+      font-size: 1.3em;
+      color: inherit;
+      border-bottom: 1px solid #EEE;
+      font-weight: inherit;
+    }
+
+    .no-devices {
+      text-align: center;
+    }
+    
+    ul {
+      font-size: 14px;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+
+      li {
+          padding: 10px 0;
+          text-align: left;
+
+          label {
+            font-weight: 600;
+            margin: 0;
+          }
+
+          .id {
+            font-size: .9em;
+          }
+
+          footer {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+          }
+
+          .nic {
+            margin-right: 5px;
+          }
+
+          .nic-help {
+            font-size: .8em;
+            padding: 15px 0;
+          }
+          .advanced {
+            font-size: .8em;
+            &:hover {
+              color: #989898;
+            }
+          }
+
+          .features {
+            margin-right: 5px;
+            color: #989898;
+          }
+
+          .attach {
+            border-color: #8aa970;
+            background: #8aa970;
+
+            &:hover {
+              background: #6b8853;
+            }
+          }
+      }
+
+      li:not(:last-of-type) {
+          border-bottom: 1px solid #E5E9F0;
+      }
+    }
+}
+
+/* todo: cleanup... before less */
+.connect-widget .form-container input[type="number"],
+.connect-widget .form-container input[type="text"],
+.connect-widget .form-container input[type="text"].ng-valid,
+.connect-widget .form-container input[type="number"].ng-valid {
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 1px solid #f2f2f2;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+.form-container div.error {
+    color: #a94442;
+    text-align: left;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    font-size: .9em;
+}
+
+.form-container input.error {
+    border: 1px solid #a94442 !important;
+}
+
+.connect-widget .form-container input[type="submit"] {
+  text-transform: uppercase;
+  outline: 0;
+  background: #8aa970;
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  color: #FFFFFF;
+  font-size: 14px;
+  -webkit-transition: all 0.3 ease;
+  transition: all 0.3 ease;
+  cursor: pointer;
+
+  &.small {
+    padding: 6px 12px;
+    width: initial;
+    text-transform: none;
+    font-size: inherit;
+  }
+}
+
+.connect-widget .form-container input[type="submit"]:hover,
+.form-container input[type="submit"]:active,
+.form-container input[type="submit"]:focus {
+  background: #6b8853;
+}
+
+.form-container input[type="submit"].connected {
+  background-color: #BF616A;
+}
+
+.connect-widget .form-container input[type="submit"].connected:hover,
+.form-container input[type="submit"].connected:active,
+.form-container input[type="submit"].connected:focus {
+  background-color: #a0444c;
+}
+
+.connect-widget .form-container .message {
+  margin: 15px 0 0;
+  color: #b3b3b3;
+  font-size: 12px;
+}
+
+.connect-widget .form-container .message a {
+  color: #8aa970;
+  text-decoration: none;
+}
+
+.form-container label {
+  text-align: left; 
+  display: block; 
+  margin-bottom: 15px;
+}
+
+.form-container input[type="checkbox"] {
+  width: initial; 
+  margin: 0;
+}
+
+.form-container label.remember span {
+  font-size: 14px; position: relative; top: -2px;
+}
+
+.connect-widget .ng-hide-add { animation:0.25s anim-out ease; }
+.connect-widget .ng-hide-remove { animation:0.25s anim-in ease; }
+
+@keyframes anim-in {
+  0% {
+    opacity: 0;
+  }
+}
+
+@keyframes anim-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes anim-out {
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}

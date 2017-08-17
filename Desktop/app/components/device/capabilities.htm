@@ -1,0 +1,37 @@
+<div class="dialog-header">
+    <div class="media">
+        <div class="media-body">
+            <span class="text-semibold text-lg text-main">{{ctrl.title}}</span>
+        </div>
+    </div>
+</div>
+
+<div class="dialog-body">
+    <ul class="nav nav-tabs mar-top">
+        <li class="active">
+            <a data-toggle="tab" data-target="#tab-device-features">Features</a>
+        </li>
+        <li>
+            <a data-toggle="tab" data-target="#tab-device-properties">Properties</a>
+        </li>
+        <!--
+        <li>
+            <a data-toggle="tab" data-target="#tab-device-processor">CPU Load</a>
+        </li>
+        -->
+    </ul>
+
+    <div class="tab-content">
+        <ng-include id="tab-device-features" class="tab-pane active" src="'./components/device/features.htm'"></ng-include>
+        <ng-include id="tab-device-properties" class="tab-pane" src="'./components/device/properties.htm'"></ng-include>
+        <!--
+        <ng-include id="tab-device-processor" class="tab-pane" src="'./components/device/processor.htm'"></ng-include>
+        -->
+    </div>
+</div>
+
+<div class="dialog-footer pad-top">
+    <div class="text-right">
+        <button ng-click="ctrl.close()" class="btn btn-dark">Close</button>
+    </div>
+</div>

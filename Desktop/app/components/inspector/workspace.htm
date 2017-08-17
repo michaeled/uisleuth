@@ -1,0 +1,103 @@
+<ng-controller ng-controller="WorkspaceController as wsctrl">
+    <div id="lbar">
+        <article class="bar-container">
+            <div class="rail">
+                <div class="grip"></div>
+            </div>
+            <ng-include src="'components/inspector/lbar.htm'"></ng-include>
+        </article>
+    </div>
+
+    <div id="device-container" ng-controller="DeviceViewController as device">
+        <div ng-hide="device.src">
+            <div class="loading"></div>
+        </div>
+
+        <div id="device-position" ng-show="device.src">
+            <div id="device-frame">
+                <canvas ng-click="device.touch($event)" id="device-output"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div id="rbar">
+        <article class="bar-container">
+            <div class="rail">
+                <div class="grip"></div>
+            </div>
+            <ng-include src="'components/inspector/rbar.htm'"></ng-include>
+        </article>
+    </div>
+</ng-controller>
+
+<div id="finger"></div>
+
+<script>
+    (function() {
+        $("#lbar").resizable({
+            handleSelector: ">.grip",
+            resizeHeight: false,
+            resizeWidthFrom: 'right',
+            onDrag: onDrag
+        });
+
+        $("#rbar").resizable({
+            handleSelector: ">.grip",
+            resizeHeight: false,
+            resizeWidthFrom: 'left',
+            onDrag: onDrag
+        });
+
+        function onDrag(e, $el, newWidth, newHeight, opt) {
+            if (newWidth <= 350) {
+                newWidth = 350;
+            }
+
+            if (newWidth >= 550) {
+                newWidth = 550;
+            }
+
+            $el.width(newWidth);
+            return false;
+        }
+
+        let gesturing = false;
+        let gesturePath = [];
+
+        $('#device-output').mousedown(function(){
+            gesturing = true;
+            gesturePath = [];
+        });
+
+        $('#device-output').mouseup(function(){
+            gesturing = false;
+
+            // path is complete
+            let scope = angular.element(this).scope();
+            scope.device.gesture(gesturePath);
+        });
+
+        $('#device-output').mousemove(function(e){
+            if (gesturing === false) return;
+            gesturePath.push({x: e.offsetX, y: e.offsetY});
+        });
+
+        // simulate tapping
+        $('#device-output').click(function(e) {
+            if (gesturing) return;
+            
+            let x = e.pageX;
+            let y = e.pageY;
+            
+            let scope = angular.element(this).scope();
+            if (!scope.device.touchEnabled) return;
+
+            $('.tap').remove();
+            $('<div>')
+                .addClass('tap')
+                .css({left: x,top: y})
+                .appendTo('body')
+                .fadeOut(500);
+        });
+    })();
+</script>

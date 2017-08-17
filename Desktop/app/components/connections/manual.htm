@@ -1,0 +1,24 @@
+<div class="remote page" ng-class="{'active': manager.tab === 'remote'}">
+    <form novalidate name="connectForm" ng-submit="main.connected ? manager.onClose() : manager.onConnect(connectForm)">
+        <input ng-readonly="main.connected" ng-class="{'error': manager.isAddressValid(connectForm)}" name="address" uis-focus="manager.focus" ng-model="manager.address" required type="text" placeholder="address" />
+
+        <div class="error" ng-show="manager.isAddressValid(connectForm)">
+            Please enter a valid address.
+        </div>
+
+        <input ng-readonly="main.connected" ng-class="{'error': manager.isPortValid(connectForm)}" name="port" ng-model="manager.port" min="0" max="65535" maxlength="5" size="5" required type="number" placeholder="port" />
+
+        <div class="error" ng-show="manager.isPortValid(connectForm)">
+            Please enter a valid port.
+        </div>
+
+        <label class="remember">
+            <input ng-disabled="main.connected" ng-model="manager.remember" type="checkbox"> 
+                <span>Save settings.</span>
+        </label>
+
+        <input ng-disabled="manager.connecting" ng-class="{'connected': main.connected }" type="submit" value="{{manager.label}}" />
+
+        <p class="message">Please enter the address and port of the device accepting connections from UI Sleuth. Default port is 9099.</p>
+    </form>
+</div>

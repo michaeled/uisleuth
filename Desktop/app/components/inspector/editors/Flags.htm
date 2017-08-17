@@ -1,0 +1,20 @@
+<div class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">
+            {{editor.type}}
+        </small>
+    </label>
+    <div class="col-md-6 control-editor">
+        <div style="width: 100%" class="input-group flags-editor">
+            <select class="selectpicker" multiple>
+                <option data-content="{{possible}}" value="{{possible}}" ng-repeat="possible in editor.possibles"></option>
+            </select>
+        </div>
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>
+<ng-init ng-init="editor.onShown()"></ng-init>

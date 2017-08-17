@@ -1,0 +1,83 @@
+<div ng-show="ui.activePage === 'list'" class="page-body tab-container">
+    <nav class="tabs">
+        <ul>
+            <li ng-class="{'active': ui.selected.usage == tab.usage}" ng-click="ui.selected = tab" ng-repeat="tab in ui.tabs | orderBy: 'usage'">{{tab.usage}}</li>
+        </ul>
+    </nav>
+
+    <section class="tab-content">
+        <div class="search">
+            <div class="searchbox">
+                <input ng-model="ui.filter" type="text" class="form-control" placeholder="Search...">
+            </div>
+        </div>
+
+        <div style="columns: 3">
+            <div class="item" ng-click="ui.clicked(item);" ng-repeat="item in filtered = (ui.selected.items | filter:{'fullName': ui.filter} | orderBy: 'fullName')">
+                <span class="shortname">{{ui.shortname(item.fullName)}}</span>
+                <span class="fullname">{{item.fullName}}</span>
+            </div>
+        </div>
+
+        <p ng-hide="filtered.length" class="pad-all help-text">Your filter criteria returned no results.</p>
+    </section>
+</div>
+
+<div ng-show="ui.activePage === 'grid'" class="page-body create-grid">
+    <table>
+        <tr>
+            <td>
+                <label>Columns</label>
+                <input ng-model="ui.grid.props.columns" type="number" class="form-control">
+            </td>
+            <td>
+                <label>Rows</label>
+                <input ng-model="ui.grid.props.rows" type="number" class="form-control">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <label>Column Spacing</label>
+                <input ng-model="ui.grid.props.columnSpacing" type="number" class="form-control">
+            </td>
+            <td>
+                <label>Row Spacing</label>
+                <input ng-model="ui.grid.props.rowSpacing" type="number" class="form-control">
+            </td>
+        </tr>
+    </table>
+
+    <footer>
+        <button ng-click="ui.setPage('list')" class="btn btn-dark">Cancel</button>
+        <button ng-click="ui.grid.create()" class="btn btn-primary">Create</button>
+    </footer>
+</div>
+
+
+
+<div ng-show="ui.activePage === 'stacklayout'" class="page-body create-stacklayout">
+    <p>
+        <label>Orientation</label>
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="ui.stacklayout.props.orientation" value="vertical">
+                Vertical
+            </label>
+        </div>
+        <div class="radio">
+            <label>
+                <input type="radio" ng-model="ui.stacklayout.props.orientation" value="horizontal">
+                Horizontal
+            </label>
+        </div>
+    </p>
+    <p>
+        <label>Spacing</label>
+        <input type="number" ng-model="ui.stacklayout.props.spacing" class="form-control">
+    </p>
+
+    <footer>
+        <button ng-click="ui.setPage('list')" class="btn btn-dark">Cancel</button>
+        <button ng-click="ui.stacklayout.create()" class="btn btn-primary">Create</button>
+    </footer>
+</div>

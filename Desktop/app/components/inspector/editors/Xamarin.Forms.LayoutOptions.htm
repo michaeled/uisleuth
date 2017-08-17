@@ -1,0 +1,37 @@
+<div class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">{{editor.type}}</small>
+    </label>
+    <div class="col-md-6 control-editor text-center mar-btm">
+
+        <div style="width: 100%" class="btn-group" data-toggle="buttons">
+            <label ng-class="{ 'active': editor.alignment.value === 'Start'}" ng-click="editor.start($event)" data-container="body" data-toggle="tooltip" title="Left" style="width: 25%" class="btn btn-default">
+                <input type="radio" name="lo-{{editor.name}}" autocomplete="off">
+                <span class="glyphicon glyphicon-align-left"></span>
+            </label>
+            <label ng-class="{ 'active': editor.alignment.value === 'Center'}" ng-click="editor.center($event)" data-container="body" data-toggle="tooltip" title="Center" style="width: 25%" class="btn btn-default">
+                <input type="radio" name="lo-{{editor.name}}" autocomplete="off">
+                <span class="glyphicon glyphicon-align-center"></span>
+            </label>
+            <label ng-class="{ 'active': editor.alignment.value === 'End'}" ng-click="editor.end($event)" data-container="body" data-toggle="tooltip" title="Right" style="width: 25%" class="btn btn-default">
+                <input type="radio" name="lo-{{editor.name}}" autocomplete="off">
+                <span class="glyphicon glyphicon-align-right"></span>
+            </label>
+            <label ng-class="{ 'active': editor.alignment.value === 'Fill'}" ng-click="editor.fill($event)" data-container="body" data-toggle="tooltip" title="Fill" style="width: 25%" class="btn btn-default">
+                <input type="radio" name="lo-{{editor.name}}" autocomplete="off">
+                <span class="glyphicon glyphicon-align-justify"></span>
+            </label>
+        </div>
+
+        <div class="text-left checkbox">
+            <input ng-change="editor.expand($event)" ng-disabled="editor.readonly" id="lo-{{$index}}" class="magic-checkbox" type="checkbox" ng-model="editor.expands.value">
+            <label for="lo-{{$index}}">Expands</label>
+        </div>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

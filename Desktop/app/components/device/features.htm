@@ -1,0 +1,19 @@
+<div ng-controller="DeviceFeaturesController as ctrl">
+    <p class="pad-all text-center" ng-if="ctrl.features.length == 0">
+        No device features could be found.<br><br>This is usually resolved by having an Android device online before starting UI Sleuth.
+    </p>
+    <table ng-if="ctrl.features.length > 0" class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="feature in ctrl.features">
+                <td>{{feature.name}}</td>
+                <td>{{feature.value}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

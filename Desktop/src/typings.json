@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "electron": "registry:dt/electron#1.4.8+20170227030124"
+  }
+}

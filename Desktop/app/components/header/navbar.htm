@@ -1,0 +1,9 @@
+<div ng-controller="NavBarController as nav">
+    <ul class="nav navbar-top-links pull-left">
+        <li><a href="#/">Connection Manager</a></li>
+    </ul>
+
+    <ul ng-if="nav.canShowDeviceDialog" class="nav navbar-top-links pull-right">
+        <li><a ng-click="nav.showDeviceDialog($event)" href="#">Device Capabilities</a></li>
+    </ul>
+</div>

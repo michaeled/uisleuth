@@ -1,0 +1,48 @@
+<div class="local page" ng-class="{'active': manager.tab === 'local'}">
+    <div ng-if="manager.os === 'darwin'">
+        <h2>iOS Apps</h2>
+        <ul>
+            <li ng-repeat="app in manager.apps">
+                <label>{{app.name}}</label>
+                <p class="id">
+                    <span id="id-app-{{$index}}">localhost:9099</span>
+                    <small><a id="id-copylink" href="#" ng-click="manager.onCopyIpAddress($event, 'id-app-' + $index);">(copy to clipboard)</a></small>
+                </p>
+                <footer>
+                    <button ng-click="manager.onAppAttach(app)" class="btn btn-primary attach">{{manager.label}}</button>
+                </footer>
+            </li>
+            <li ng-if="!manager.apps.length">
+                <div class="no-devices">
+                    <p>No iOS apps detected.</p>
+                    <br>
+                    <p class="text-left"><strong>1.</strong> Ensure a simulator is online, and the inspector is initialized via-code with the default values.</p>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <h2>Android</h2>
+    <ul>
+        <li ng-repeat="device in manager.devices">
+            <label>{{device.name}}</label>
+            <p class="id">
+                <span id="id-device-{{$index}}">{{device.validIp ? device.ip : device.id}} </span>
+                <small><a id="id-copylink" href="#" ng-click="manager.onCopyIpAddress($event, 'id-device-' + $index);">(copy to clipboard)</a></small>
+            </p>
+            <footer>
+                <button ng-click="manager.onShowFeatures(device)" class="btn btn-default features">Features</a>
+                <button ng-click="manager.onDeviceAttach(device)" class="btn btn-primary attach">{{manager.label}}</button>
+            </footer>
+        </li>
+        <li ng-if="manager.devices.length === 0">
+            <div class="no-devices">
+                <p>No devices detected.</p>
+                <br>
+                <p class="text-left"><strong>1.</strong> Ensure <a href="https://developer.android.com/studio/command-line/adb.html">ADB</a> is in your environment's path and a device is online.</p>
+                <p class="text-left"><strong>2.</strong> Otherwise, connect to a device using the 
+                <a href="#" ng-click="manager.onTabClicked($event, 'remote')">Manual Connection</a> tab.</p>
+            </div>
+        </li>
+    </ul>
+</div>

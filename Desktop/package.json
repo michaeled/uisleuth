@@ -1,0 +1,42 @@
+{
+  "build": {
+    "appId": "com.uisleuth.app",
+    "extraResources": [
+      "defaults/"
+    ]
+  },
+  "scripts": {
+    "pack": "build --dir",
+    "dist": "build -w",
+    "postinstall": "install-app-deps",
+    "build": "gulp build",
+    "prerelease": "gulp build --env=production",
+    "release": "build --x64 --publish always",
+    "start": "gulp start"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "electron": "^1.4.7",
+    "electron-builder": "^8.6.0",
+    "electron-mocha": "^3.0.0",
+    "fs-jetpack": "^0.10.2",
+    "gulp": "^3.9.0",
+    "gulp-batch": "^1.0.5",
+    "gulp-less": "^3.0.3",
+    "gulp-plumber": "^1.1.0",
+    "gulp-util": "^3.0.6",
+    "gulp-watch": "^4.3.5",
+    "istanbul": "^0.4.3",
+    "minimist": "^1.2.0",
+    "mocha": "^3.0.2",
+    "rollup": "^0.36.3",
+    "rollup-plugin-istanbul": "^1.1.0",
+    "rollup-plugin-typescript": "^0.8.1",
+    "source-map-support": "^0.4.2",
+    "spectron": "^3.3.0",
+    "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "@types/fabric": "^1.5.20"
+  }
+}

@@ -1,0 +1,23 @@
+<div class="connect-container">
+    <div class="connect-widget">
+        <img class="logo" src="components/global/logo.png" />
+
+        <div class="form-container">
+            <header>
+                <a class="tab" ng-class="{'active': manager.tab === 'local'}" href="#" ng-click="manager.onTabClicked($event, 'local')">
+                    <div class="overhang"></div>
+                    <span>Discovery</span>
+                </a>
+                <a class="tab" ng-class="{'active': manager.tab === 'remote'}" href="#" ng-click="manager.onTabClicked($event, 'remote')">
+                    <div class="overhang"></div>
+                    <span>Manual Connection</span>
+                </a>
+            </header>
+
+            <div class="body">
+                <ng-include src="'components/connections/discovery.htm'"></ng-include>
+                <ng-include src="'components/connections/manual.htm'"></ng-include>
+            </div>
+        </div>
+    </div>
+</div>

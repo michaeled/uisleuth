@@ -1,0 +1,19 @@
+<div ng-controller="DevicePropertiesController as ctrl">
+    <p class="pad-all" ng-if="ctrl.properties.length == 0">
+        No device properties could be found.
+    </p>
+    <table ng-if="ctrl.properties.length > 0" class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="property in ctrl.properties">
+                <td>{{property.name}}</td>
+                <td>{{property.value}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

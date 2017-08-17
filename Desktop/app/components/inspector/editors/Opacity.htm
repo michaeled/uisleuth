@@ -1,0 +1,19 @@
+<div class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>       
+        <small class="help-block">{{editor.type}}</small>
+        <ng-if ng-if="editor.hasDefaults">
+            <ng-include src="'components/inspector/editors/shared/_set.default.htm'"></ng-include>
+        </ng-if>
+    </label>
+    <div class="col-md-6 control-editor">
+        <p class="text-center">{{editor.sliderval}}%</p>
+
+        <div ya-no-ui-slider-events='editor.config.events' ya-no-ui-slider-disabled="editor.readonly" ya-no-ui-slider='editor.config.options'></div>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

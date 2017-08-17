@@ -1,0 +1,13 @@
+<div class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">{{editor.type}}</small>
+    </label>
+    <div class="col-md-6 control-editor">
+        <input ng-readonly="editor.readonly" placeholder="{{editor.placeholder}}" type="number" id="si-{{$index}}" ng-change="propctrl.changed(editor)" class="form-control" ng-model="editor.value">
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

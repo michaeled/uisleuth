@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>UISleuth</id>
+    <version>1.0.0</version>
+    <title>UI Sleuth</title>
+    <authors>michaeled</authors>
+    <owners>michaeled</owners>
+    <projectUrl>https://www.uisleuth.com/</projectUrl>
+    <iconUrl>https://www.uisleuth.com/wp-content/uploads/2017/02/logo.png</iconUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>UI Sleuth is a Xamarin.Forms debugging tool. If you’ve ever made a web site, it’s similar to Microsoft’s F12 tools or Chrome Developer Tools. You can use it to efficiently track down layout issues, prototype a new design, and remotely control a device.</description>
+    <copyright>Copyright © 2017 bitsleuths, LLC.</copyright>
+    <tags>xamarin forms xamarin.forms xamarinforms uisleuth inspector</tags>
+
+    <dependencies>     
+      <group targetFramework="MonoAndroid1.0">
+        <dependency id="Xamarin.Android.Support.v4" version="[23.3.0]" />
+        <dependency id="Xamarin.Android.Support.Design" version="[23.3.0]" />
+        <dependency id="Xamarin.Android.Support.v7.AppCompat" version="[23.3.0]" />
+        <dependency id="Xamarin.Android.Support.v7.CardView" version="[23.3.0]" />
+        <dependency id="Xamarin.Android.Support.v7.MediaRouter" version="[23.3.0]" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Xamarin.Forms" version="2.3.3.193" />
+      </group>
+      <group targetFramework="MonoAndroid7.0">
+        <dependency id="Xamarin.Android.Support.v4" version="23.3.0" />
+        <dependency id="Xamarin.Android.Support.Design" version="23.3.0" />
+        <dependency id="Xamarin.Android.Support.v7.AppCompat" version="23.3.0" />
+        <dependency id="Xamarin.Android.Support.v7.CardView" version="23.3.0" />
+        <dependency id="Xamarin.Android.Support.v7.MediaRouter" version="23.3.0" />
+        <dependency id="Newtonsoft.Json" version="9.0.1" />
+        <dependency id="Xamarin.Forms" version="2.3.3.193" />
+      </group>
+    </dependencies>
+  </metadata>
+
+  <files>
+    <file src="UISleuth.Android.dll" target="lib\MonoAndroid10" />
+    <file src="UISleuth.iOS.dll" target="lib\Xamarin.iOS10" />
+    <file src="readme.txt" target="" />
+  </files>
+</package>

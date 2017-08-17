@@ -1,0 +1,8 @@
+{
+    "name": "test",
+    "description": "UI Sleuth test environment variables",
+    "help": {
+        "xf.url.property": "https://developer.xamarin.com/api/property/",
+        "xf.url.type": "https://developer.xamarin.com/api/type/"
+    }
+}

@@ -1,0 +1,17 @@
+<div class="media">
+    <div class="media-body">
+        <span class="text-semibold text-lg text-main">{{dlgctrl.title}}</span>
+        <p style="margin-bottom: 20px" class="text-muted text-sm">Changes will reflect after applying.</p>
+    </div>
+</div>
+
+<form class="form-horizontal">
+    <p>
+        <textarea ng-model="dlgctrl.value" style="resize: none;" rows="10" class="form-control"></textarea>
+    </p>
+
+    <div class="text-right">
+        <button ng-click="dlgctrl.close()" class="btn btn-dark">Cancel</button>
+        <input ng-click="dlgctrl.apply()" type="submit" value="Apply" class="btn btn-primary">
+    </div>
+</form>

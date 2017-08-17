@@ -1,0 +1,25 @@
+<div class="media">
+    <div class="media-body">
+        <span class="text-semibold text-lg text-main">{{wvdctrl.title}}</span>
+        <p style="margin-bottom: 20px" class="text-muted text-sm">Changes will reflect after applying.</p>
+    </div>
+</div>
+<form class="form-horizontal">
+    <p style="width: 100%; height: 450px;" id="htmleditor">
+    </p>
+
+    <div class="text-right">
+        <button ng-click="wvdctrl.close()" class="btn btn-dark">Cancel</button>
+        <input ng-click="wvdctrl.apply()" type="submit" value="Apply" class="btn btn-primary">
+    </div>
+</form>
+
+<script>
+    $(function() {
+        var scope = angular.element(document.getElementById("htmleditor")).scope();
+        var editor = ace.edit("htmleditor");
+        editor.setTheme("ace/theme/twilight");
+        editor.getSession().setMode("ace/mode/html");
+        editor.setValue(scope.wvdctrl.value);
+    });
+</script>

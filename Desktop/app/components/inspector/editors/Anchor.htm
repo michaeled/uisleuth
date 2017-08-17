@@ -1,0 +1,73 @@
+<p class="control-label">
+    AnchorX and AnchorY
+    <br>
+    <small class="help-block">{{editor.type}}</small>
+</p>
+
+<div id="anchorxy-target">
+</div>
+
+<div id="anchorxy-footer">
+    <ng-if ng-if="editor.hasDefaults">
+        <ng-include src="'components/inspector/editors/shared/_set.default.htm'"></ng-include>
+    </ng-if>
+
+    <div id="anchorxy-output">
+        {{editor.output}}
+    </div>
+</div>
+
+<script>
+    $(function() {
+        let $target = $("#anchorxy-target");
+        let $footer = $("#anchorxy-footer");
+        let editor = $target.scope().editor;
+
+        let $dot = $("<div>", {
+            class: "dot"
+        });
+
+        $dot.appendTo($target);
+
+        let dotWidth = $dot.width() / 2;
+        let dotHeight = $dot.height() / 2;
+
+        function reset() {
+            // only used when the editor is first displayed
+            let startX = (editor.anchorX * 100) + "%";
+            let startY = (editor.anchorY * 100) + "%";
+
+            $dot.css("left", `calc(${startX} - ${dotWidth}px)`);
+            $dot.css("top", `calc(${startY} - ${dotHeight}px)`);
+        }
+
+        $footer.on("click", "a.reset", function(e) {
+            reset();
+            e.stopPropagation();
+        });
+
+        $target.on("click", function(e) {
+            // short-circuit if this is the dot that was clicked
+            if (this != e.target) {
+                return;
+            }
+
+            let targetWidth = $target.width();
+            let targetHeight = $target.height();
+
+            let x = e.offsetX - dotWidth;
+            let y = e.offsetY - dotHeight;
+
+            editor.anchorX = Math.round10(e.offsetX / targetWidth, -1);
+            editor.anchorY = Math.round10(e.offsetY / targetHeight, -1);
+
+            $dot.css("left", x);
+            $dot.css("top", y);
+
+            $target.scope().$apply();
+            e.stopPropagation();
+        });
+
+        reset();
+    });
+</script>

@@ -1,0 +1,31 @@
+<ng-controller ng-controller="SettingsController as settctrl">
+
+    <div class="mm-settings-header mar-btm">
+        <p class="text-semibold text-main mar-no text-lg">General</p>
+    </div>
+
+    <section>
+        <div class="slider-knob">
+            <p>
+                Screen Refresh Rate
+            </p>
+            <p>
+                {{ settctrl.screenRate }} m/s
+            </p>
+        </div>
+
+        <div ya-no-ui-slider='settctrl.screenRateOptions'></div>
+
+        <div class="mar-top slider-knob">
+            <p>
+                Property Update Rate
+            </p>
+            <p>
+                {{ settctrl.modelUpdateRate }} m/s
+            </p>
+        </div>
+
+        <div ya-no-ui-slider='settctrl.modelUpdateOptions'></div>
+    </section>
+
+</ng-controller>

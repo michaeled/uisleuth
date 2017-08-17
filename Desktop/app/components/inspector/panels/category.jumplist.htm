@@ -1,0 +1,3 @@
+<div style="columns: 2; padding: 0 15px 15px;">
+    <button ng-click="propctrl.scrollTo($event, 'panel-heading-' + bcat.name)" style="width: 100%" class="btn btn-dark" ng-repeat="bcat in propctrl.showableCategories | orderBy: 'name'">{{bcat.name}}</button>
+</div>

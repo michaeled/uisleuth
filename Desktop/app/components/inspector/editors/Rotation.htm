@@ -1,0 +1,21 @@
+<div class="pad-btm form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">{{editor.type}}</small>
+        <a href="" ng-click="editor.toggleNegatives()">{{editor.negativeLabel}} </a>
+        <br>
+        <ng-include src="'components/inspector/editors/shared/_set.default.htm'"></ng-include>
+    </label>
+    <div class="col-md-6 text-center">
+        <ui-knob options="editor.config.knob" value="editor.value"></ui-knob>
+
+        <div class="mar-top">
+            <input style="width: 60%; margin: 0 auto;" ng-model="editor.value" type="number" class="form-control" />
+        </div>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

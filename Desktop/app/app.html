@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UI Sleuth</title>
+    
+    <script>
+        window.jQuery = window.$ = require('jquery');
+        window.d3 = require('./bower_components/d3/d3.min');
+        window.tinycolor = require("./bower_components/tinycolor/dist/tinycolor-min");
+    </script>
+
+    <script src="bower_components/PubSubJS/src/pubsub.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="bower_components/angular-route/angular-route.min.js"></script>
+    <script src="bower_components/angular-animate/angular-animate.js"></script>
+    <script src="bower_components/nouislider/distribute/nouislider.min.js"></script>
+    <script src="bower_components/nouislider-angular/nouislider.min.js"></script>
+    <script src="bower_components/tinycolor/dist/tinycolor-min.js"></script>
+    <script src="bower_components/angular-color-picker/dist/angularjs-color-picker.min.js"></script>
+    <script src="bower_components/d3/d3.min.js"></script>
+    <script src="bower_components/ng-knob/dist/ng-knob.min.js"></script>
+    <script src="bower_components/lodash/dist/lodash.min.js"></script>
+    <script src="bower_components/fabric.js/dist/fabric.min.js"></script>
+    <script src="bower_components/ng-dialog/js/ngDialog.min.js"></script>
+    <script src="libs/angular.panels/angular.panels.min.js"></script>
+    <script src="bower_components/jquery.terminal/js/jquery.terminal.min.js"></script>
+    <script src="bower_components/jquery.terminal/js/jquery.mousewheel-min.js"></script>
+    <script src="bower_components/angular-ui-tree/dist/angular-ui-tree.js"></script>
+    <script src="bower_components/jquery-resizable/dist/jquery-resizable.min.js"></script>
+    <script src="bower_components/json-formatter-js/dist/json-formatter.js"></script>
+
+    <link href="bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="libs/css/nifty.css" rel="stylesheet">
+    <link href="libs/css/demo/nifty-demo-icons.min.css" rel="stylesheet">
+    <link href="libs/css/demo/nifty-demo.css" rel="stylesheet">
+    <link href="libs/js/magic-check/css/magic-check.min.css" rel="stylesheet">
+    <link href="bower_components/angular-color-picker/dist/angularjs-color-picker.min.css" rel="stylesheet" />
+    <link href="bower_components/angular-color-picker/dist/themes/angularjs-color-picker-bootstrap.min.css" rel="stylesheet" />
+    <link href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet" />
+    <link href="bower_components/ng-dialog/css/ngDialog.min.css" rel="stylesheet">
+    <link href="bower_components/ng-dialog/css/ngDialog-theme-default.min.css" rel="stylesheet">
+    <link href="bower_components/ng-dialog/css/ngDialog-theme-plain.min.css" rel="stylesheet">
+    <link href="libs/angular.panels/angular.panels.min.css" rel="stylesheet">
+    <link href="bower_components/jquery.terminal/css/jquery.terminal.min.css" rel="stylesheet">
+    <link href="bower_components/angular-ui-tree/dist/angular-ui-tree.min.css" rel="stylesheet">
+
+    <script src="libs/js/nifty.js"></script>
+    <script src="libs/ace/ace.js"></script>
+    <script src="helpers/context_menu.js"></script>
+    <script src="helpers/external_links.js"></script>
+    <script src="app.js"></script>
+
+    <link href="stylesheets/main.css" rel="stylesheet">
+</head>
+
+<body ng-app="uisleuth" ng-controller="MainController as main">
+    <!--<ng-include src="'components/header/megamenu.htm'"></ng-include>-->
+    <div data-panels="true" id="container">
+        <header id="navbar">
+            <div id="navbar-container" class="boxed">
+                <div class="navbar-content clearfix">
+                    <ng-include src="'components/header/navbar.htm'"></ng-include>
+                </div>
+            </div>
+        </header>
+
+        <div id="content-container">
+            <ng-view class="view-animate"></ng-view>
+        </div>
+
+        <footer id="footer">
+            <ng-include src="'components/footer/statusbar.htm'"></ng-include>
+        </footer>
+    </div>
+
+    <!-- dialogs -->
+    <ng-include ng-controller="AboutDialogController as about" src="'components/help/about.htm'"></ng-include>
+</body>
+</html>

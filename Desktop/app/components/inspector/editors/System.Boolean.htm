@@ -1,0 +1,17 @@
+<div class="form-group">
+    <label for="sb-{{$index}}" class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">{{editor.type}}</small>
+    </label>
+    <div class="col-md-6">
+        <div class="checkbox">
+            <input ng-disabled="editor.readonly" id="sb-{{$index}}" class="magic-checkbox" type="checkbox" ng-model="editor.value" ng-change="propctrl.changed(editor)">
+            <label for="sb-{{$index}}">{{editor.value}}</label>
+        </div>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

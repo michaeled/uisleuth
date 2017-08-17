@@ -1,0 +1,8 @@
+{
+    "name": "production",
+    "description": "UI Sleuth production environment variables.",
+    "help": {
+        "xf.url.property": "https://developer.xamarin.com/api/property/",
+        "xf.url.type": "https://developer.xamarin.com/api/type/"
+    }
+}

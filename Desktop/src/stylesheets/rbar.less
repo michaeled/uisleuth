@@ -1,0 +1,106 @@
+#tab-attached,
+#tab-properties {
+    
+    .bootstrap-select button,
+    .btn-group label.btn {
+        outline: 0 !important;
+    }
+
+    #anchorxy-target {
+        border: 1px solid white;
+        position: relative;
+        height: 100px;
+    }
+    
+    #anchorxy-footer {
+        margin-top: 10px;
+        margin-bottom: 15px;
+        font-size: .9em;
+    }
+    
+    #anchorxy-output {
+        float: right;
+    }
+    
+    /* changing dot size needs to change size in anchor.htm */
+    #anchorxy-target .dot {
+        position: absolute;
+        border-radius: 50%;
+        width: 20px;
+        height: 20px;
+        border: 1px solid #D8DEE9;
+        background-color: #ECEFF4;
+    }
+
+    .noUi-target {
+        border-radius: 0;
+    }
+    
+    a.external {
+        color: #D2D3D3;
+        padding-right: 3px;
+    }
+
+    .resetfilter {
+        cursor: pointer; border-bottom: 1px dotted silver;
+    }
+
+    .panel-body.properties {
+
+        .form-group:last-of-type {
+            .help-block {
+                margin-bottom: 0;
+            }
+        }
+
+        .control-label {
+            font-size: .9em;
+        }
+
+        .control-editor {
+            padding-top: 7.5px;
+            padding-right: 0;
+
+            input:read-only {
+                background-color: #2E3440;
+                color: #D2D3D3;
+            }
+        }
+
+        table.control-thickness {
+            td {
+                text-align: center;
+                padding: 5px;
+            }
+
+            tr:first-of-type {
+                td {
+                    padding-top: 0;
+                }
+
+                td:first-of-type {
+                    padding-left: 0;
+                }
+
+                td:last-of-type {
+                    padding-right: 0;
+                }
+            }
+
+            tr:nth-of-type(2) {
+                td {
+                    padding-bottom: 0;
+                }
+
+                td:first-of-type {
+                    padding-left: 0;
+                }
+                td:nth-of-type(2) {
+                    padding-right: 0;
+                }
+            }
+
+            margin-bottom: 15px;
+        }
+    }
+}

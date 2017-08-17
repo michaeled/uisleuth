@@ -1,0 +1,115 @@
+<ng-controller class="grow" ng-controller="CategoriesController as catctrl">
+    <!-- categories -->
+    <div class="mm-categories-header">
+        <p class="text-semibold text-main text-lg mar-no">
+            Categories
+        </p>
+
+        <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button" aria-expanded="false">
+                Add <i class="dropdown-caret"></i>
+			</button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a ng-click="catctrl.onNewCategory()">Category</a></li>
+                <li><a ng-click="catctrl.onNewProperty()">Property</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mm-categories-body mar-top">
+        <div class="mar-rgt list-group bord-no mm-categories">
+            <ul class="list-group">
+
+                <!-- new category item -->
+                <li ng-if="catctrl.newCategory" class="list-group-item new">
+                    <form novalidate name="catnewform" ng-submit="catctrl.addCategory(catnewform.$valid)">
+                        <input uis-esc="catctrl.hideNewCategory()" ng-class="{'error': !catnewform.$valid && !catnewform.$pristine}" maxlength="25" name="catnewname" required ng-model="catctrl.newCategoryName" uis-focus="catctrl.focusCategoryName" placeholder="Category" type="text"
+                            class="form-control" />
+                    </form>
+                </li>
+
+                <!-- category loop -->
+                <li uis-last="catctrl.endOfLoop()" ng-class="{'active': c === catctrl.selectedCategory }" class="list-group-item" ng-click="catctrl.selectCategory(c)" ng-repeat="c in catctrl.categories">
+
+                    <!-- show edit category textbox -->
+                    <ng-if ng-if="c === catctrl.editingCategory">
+                        <form novalidate name="cateditform" ng-submit="catctrl.editCategory(cateditform.$valid)">
+                            <input ng-class="{'error': !cateditform.$valid && !cateditform.$pristine}" uis-esc="catctrl.hideEditingCategory()" uis-focus="catctrl.focusEditingCategory" maxlength="25" name="cateditname" required ng-model="catctrl.editingCategoryName" type="text" class="form-control"
+                            />
+                        </form>
+                    </ng-if>
+
+                    <!-- show category name & action dropdowns -->
+                    <ng-hide ng-hide="c === catctrl.editingCategory">
+                        <span>{{c.name}}</span>
+
+                        <div ng-hide="c.builtin" class="actions btn-group pull-right">
+                            <button class="pad-no btn btn-transparent dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button" aria-expanded="true">
+                                <span class="glyphicon glyphicon-option-horizontal"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="catctrl.onEditCategory(c)">Edit</a></li>
+                                <li><a ng-click="catctrl.onDeleteCategory(c)">Delete</a></li>
+                            </ul>
+                        </div>
+                    </ng-hide>
+                </li>
+            </ul>
+        </div>
+
+        <!-- properties table -->
+        <div id="mm-properties" class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th class="name">Property Name</th>
+                        <th class="actions"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- new property form -->
+                    <tr ng-if="catctrl.newProperty">
+                        <td colspan="2" class="new">
+                            <form name="propform" novalidate ng-submit="catctrl.addProperty(propform.$valid)">
+                                <input uis-esc="catctrl.hideNewProperty()" ng-class="{'error': !propform.$valid && !propform.$pristine}" max-length="25" ng-model="catctrl.newPropertyName" uis-focus="catctrl.focusPropertyName" required name="propname" placeholder="Property" type="text"
+                                    class="form-control" />
+                            </form>
+                        </td>
+                    </tr>
+
+                    <!-- property loop  -->
+                    <tr ng-click="catctrl.selectProperty(p)" ng-class="{'active': p === catctrl.selectedProperty }" ng-repeat="p in catctrl.selectedCategory.properties | orderBy: 'name'">
+                        <!-- edit property row -->
+                        <td colspan="2" ng-if="p === catctrl.editingProperty">
+                            <form novalidate name="propeditform" ng-submit="catctrl.editProperty(propeditform.$valid)">
+                                <input ng-class="{'error': !propeditform.$valid && !propeditform.$pristine}" uis-esc="catctrl.hideEditingProperty()" uis-focus="catctrl.focusEditingProperty" maxlength="25" name="propeditname" required ng-model="catctrl.editingPropertyName" type="text"
+                                    class="form-control" />
+                            </form>
+                        </td>
+
+                        <!-- view propery row -->
+                        <td ng-hide="p === catctrl.editingProperty">{{p.name}}</td>
+                        <td ng-hide="p === catctrl.editingProperty">
+                            <div ng-hide="c.builtin" class="actions btn-group pull-right">
+                                <button class="pad-no btn btn-transparent dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button" aria-expanded="true">
+					                <span class="glyphicon glyphicon-option-horizontal"></span>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a ng-click="catctrl.onEditProperty(p)">Edit</a></li>
+                                    <li><a ng-click="catctrl.onDeleteProperty(p)">Delete</a></li>
+                                </ul>
+                            </div>
+                        </td>
+                    </tr>
+
+                    <!-- no properties message -->
+                    <tr class="sysmsg" ng-hide="catctrl.selectedCategory.properties.length">
+                        <td><i>No properties have been added, yet.</i></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+</ng-controller>

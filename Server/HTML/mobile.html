@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>websocket tests</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+
+<body>
+    <form id="chatform" action="">
+        <input id="inputbox" />
+    </form>
+    <div id="messages" />
+
+    <script>
+        //var uri = 'ws://some.azurewebsites.net/api/pair?name=' + username;
+        var uri = 'ws://localhost:52994/api/pair?clientKey=123::mobile';
+
+        websocket = new WebSocket(uri);
+        websocket.onopen = function () {
+            $('#messages').prepend('<div>Connected.</div>');
+
+            $('#chatform').submit(function (event) {
+                websocket.send($('#inputbox').val());
+                $('#inputbox').val('');
+                event.preventDefault();
+            });
+        };
+
+        websocket.onerror = function (event) {
+            $('#messages').prepend('<div>ERROR</div>');
+        };
+
+        websocket.onmessage = function (event) {
+            $('#messages').prepend('<div>' + event.data + '</div>');
+        };
+    </script>
+</body>
+</html>

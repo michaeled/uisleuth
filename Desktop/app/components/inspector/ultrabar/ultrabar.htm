@@ -1,0 +1,24 @@
+<div id="ultrabar-home" class="active page">
+    <ul>
+        <li ng-disabled="ubctrl.visible() && !ubctrl.canExecute('delete', {node})" ng-click="ubctrl.execute('delete', {node, $parentNodeScope, $childNodesScope}); ubctrl.close();">
+            <span class="ico glyphicon glyphicon-remove"></span>
+            <span class="desc">Delete</span>
+        </li>
+        <li ng-disabled="ubctrl.visible() && !ubctrl.canExecute('insert', {node})" ng-click="ubctrl.execute('insert', {node})">
+            <span class="ico glyphicon glyphicon-plus"></span>
+            <span class="desc">Insert</span>
+        </li>
+        <li ng-disabled="ubctrl.visible() && !ubctrl.canExecute('bindingcontext', {node})" ng-click="ubctrl.execute('bindingcontext', {node}); ubctrl.close();">
+            <span class="ico glyphicon glyphicon-list"></span>
+            <span class="desc">BindingContext</span>
+        </li>
+        <!--<li ng-disabled="ubctrl.visible() && !ubctrl.canExecute('events', {node})" ng-click="ubctrl.execute('events', {node}); ubctrl.close();">
+            <span class="ico glyphicon glyphicon-flash"></span>
+            <span class="desc">Monitor Events</span>
+        </li>-->
+    </ul>
+</div>
+
+<div id="ultrabar-insert" class="page" ng-init="ui = ubctrl.action('insert').ui" ng-class="{'active': ui.show}">
+    <ng-include src="'./components/inspector/ultrabar/insert.htm'"></ng-include>
+</div>

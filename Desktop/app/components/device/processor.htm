@@ -1,0 +1,14 @@
+<div>
+    <p class="text-right">
+        Monitoring:
+        <button ng-click="ctrl.procStat()" class="btn btn-default">{{ctrl.stats == null ? "Start" : "Stop"}}</button>
+    </p>
+    <div>
+        <ul ng-repeat="cpu in ctrl.cpus">
+            <li>{{cpu}}</li>
+            <li ng-repeat="prop in ctrl.loads[cpu]">
+                {{prop.name}} = {{prop.value}}
+            </li>
+        </ul>
+    </div>
+</div>

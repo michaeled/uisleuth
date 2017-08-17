@@ -1,0 +1,24 @@
+<div class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">{{editor.type}}</small>
+    </label>
+    <div class="col-md-6 control-editor text-center">
+        <div style="width: 100%" class="btn-group">
+            <button ng-class="{ 'active': editor.isStart }" data-container="body" data-toggle="tooltip" title="Left" style="width: 33%" ng-click="editor.start($event)" class="btn btn-default">
+                <span class="glyphicon glyphicon-align-left"></span>
+            </button>
+            <button ng-class="{ 'active': editor.isCenter }" data-container="body" data-toggle="tooltip" title="Center" style="width: 33%" ng-click="editor.center($event)" class="btn btn-default">
+                <span class="glyphicon glyphicon-align-center"></span>
+            </button>
+            <button ng-class="{ 'active': editor.isEnd }" data-container="body" data-toggle="tooltip" title="Right" style="width: 33%" ng-click="editor.end($event)" class="btn btn-default">
+                <span class="glyphicon glyphicon-align-right"></span>
+            </button>
+        </div>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+<div style="padding-top: 15px" ng-controller="HistoryTabController as htctrl">
+    <ul reversed ng-show="htctrl.history.length > 0">
+        <li class="{{item.classname}}" ng-repeat="item in htctrl.history">
+            <strong>{{item.header}}</strong>
+            <br> {{item.description}}
+        </li>
+    </ul>
+
+    <p class="pad-top text-center" ng-show="htctrl.history.length === 0">
+        No changes have been made, yet.
+    </p>
+</div>

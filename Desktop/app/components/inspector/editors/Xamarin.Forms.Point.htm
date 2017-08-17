@@ -1,0 +1,25 @@
+<div class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">
+            {{editor.type}}
+        </small>
+    </label>
+    <div class="col-md-6 control-editor pad-top-no">
+        <div class="mar-btm text-center" style="display: flex; justify-content: space-between">
+            <div style="margin-right: 10px">
+                <span>x</span>
+                <input ng-readonly="editor.readonly" ng-model="editor.x" style="height: auto; margin-top: 5px" class="form-control" type="number" />
+            </div>
+            <div>
+                <span>y</span>
+                <input ng-readonly="editor.readonly" ng-model="editor.y" style="height: auto; margin-top: 5px" class="form-control" type="number" />
+            </div>
+        </div>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

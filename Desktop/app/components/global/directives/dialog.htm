@@ -1,0 +1,14 @@
+<dialog class="uis">
+    <header>
+        <div ng-click="ctrl.close()" class="dialog-close"></div>
+        {{ ctrl.title }}
+    </header>
+
+    <section>
+        <ng-transclude></ng-transclude>
+    </section>
+
+    <footer>
+        <button ng-click="ctrl.close()" class="btn btn-dark">Close</button>
+    </footer>
+</dialog>

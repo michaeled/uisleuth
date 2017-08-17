@@ -1,0 +1,37 @@
+<div ng-controller="OverviewPanelController as overctrl" ng-show="overctrl.ready" class="panel panel-primary">
+
+    <!--Panel heading-->
+    <div class="panel-heading">
+        <div class="panel-control">
+            <button ng-click="$event.preventDefault()" class="btn btn-default" data-target="#panel-overview" data-toggle="collapse">
+                <i class="demo-pli-arrow-down"></i>
+            </button>
+        </div>
+        <h3 class="panel-title">Overview</h3>
+    </div>
+
+    <!--Panel body-->
+    <div id="panel-overview" class="collapse in">
+        <div class="panel-body properties">
+            <div class="text-center">
+                <ng-include src="'components/inspector/panels/display.htm'"></ng-include>
+
+                <header ng-show="overctrl.hasDetails">
+                    relative position ({{overctrl.relX}}, {{overctrl.relY}})
+                    <br> absolute position ({{overctrl.absX}}, {{overctrl.absY}})
+                </header>
+            </div>
+
+            <div ng-show="overctrl.hasDetails" style="padding-top: 15px; margin: auto; width: 70%">
+                <ng-include src="overctrl.template"></ng-include>
+            </div>
+
+            <footer ng-show="overctrl.hasDetails" class="mar-top text-center" style="font-size: .9em; word-wrap: break-word;">
+                <ng-if ng-if="overctrl.hasHelp">
+                    <a data-toggle="tooltip" data-container="body" title="Documentation" class="external" href="{{overctrl.helpUrl}}"><span class="glyphicon glyphicon-link"></span></a>
+                </ng-if>
+                {{overctrl.typeName}}
+            </footer>
+        </div>
+    </div>
+</div>

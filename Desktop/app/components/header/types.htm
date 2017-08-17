@@ -1,0 +1,62 @@
+<ng-controller ng-controller="TypesController as typesctrl">
+    <div class="mm-types-header">
+        <p class="text-semibold text-main text-lg mar-no">
+            Supported Types <span data-toggle="tooltip" title="When editing, press enter to save changes." class="edit-tip glyphicon glyphicon-info-sign"></span>
+        </p>
+
+        <div class="btn-group">
+            <button class="btn btn-default dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button" aria-expanded="false">
+                Add <i class="dropdown-caret"></i>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-right">
+                <li><a ng-click="typesctrl.onNewType()">Supported Type</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mm-types-body mar-top">
+        <table class="table">
+            <thead></thead>
+            <tbody>
+                <!-- new type item -->
+                <tr class="new" ng-if="typesctrl.newType">
+                    <td colspan="2">
+                        <form novalidate name="typesform" ng-submit="typesctrl.addType(typesform.$valid)">
+                            <input uis-esc="typesctrl.hideNewType()" ng-class="{'error': !typesform.$valid && !typesform.$pristine}" name="typename" required ng-model="typesctrl.newTypeName" uis-focus="typesctrl.focusTypeName" placeholder="Type" type="text" class="form-control"
+                            />
+                        </form>
+                    </td>
+                </tr>
+
+                <!-- repeat -->
+                <tr ng-click="typesctrl.selectType(t)" ng-class="{'active': t === typesctrl.selectedType }" ng-repeat="t in typesctrl.types | orderBy: 'fullName'">
+
+                    <td colspan="2" ng-if="t === typesctrl.editingType">
+                        <form novalidate name="typeeditform" ng-submit="typesctrl.editType(typeeditform.$valid)">
+                            <input ng-class="{'error': !typeeditform.$valid && !typeeditform.$pristine}" uis-esc="typesctrl.hideEditingType()" uis-focus="typesctrl.focusEditingType" name="typeeditname" required ng-model="typesctrl.editingTypeName" type="text" class="form-control"
+                            />
+                        </form>
+                    </td>
+
+                    <td ng-hide="t === typesctrl.editingType">{{ t.fullName }}</td>
+                    <td ng-hide="t === typesctrl.editingType">
+                        <div ng-hide="t.builtin" class="actions btn-group pull-right">
+                            <button class="pad-no btn btn-transparent dropdown-toggle dropdown-toggle-icon" data-toggle="dropdown" type="button" aria-expanded="true">
+					            <span class="glyphicon glyphicon-option-horizontal"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a ng-click="typesctrl.onEditType(t)">Edit</a></li>
+                                <li><a ng-click="typesctrl.onDeleteType(t)">Delete</a></li>
+                            </ul>
+                        </div>
+                    </td>
+                </tr>
+
+                <!-- no results message -->
+                <tr class="sysmsg" ng-hide="typesctrl.types.length">
+                    <td colspan="2"><i>No types have been added, yet.</i></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</ng-controller>

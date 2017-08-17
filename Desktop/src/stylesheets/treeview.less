@@ -1,0 +1,99 @@
+.dropdown-menu {
+    li a {
+        cursor: pointer;
+    }
+}
+
+    .dropdown-toggle .toggle-ico {
+        font-size: .5em;
+        vertical-align: middle;
+        left: 3px;
+        top: -.2em;
+    }
+    
+.angular-ui-tree-placeholder {
+    background: #EBCB8B;
+}
+
+.tip {
+    background-color: #263238;
+    padding: 10px;
+    color: #fff;
+    z-index: 10000;
+}
+
+.vt-node-container {
+    margin: 0 0 2px 0;
+    background: #343C4A;
+    display: flex;
+    cursor: pointer;
+    overflow: hidden;
+
+    &:focus {
+        outline: none;
+    }
+
+    .dropdown-menu .divider {
+        cursor: default;
+        margin: 3px 0;
+    }    
+
+    .angular-ui-tree-handle {
+        align-self: center;
+        margin-top: -1em;
+        width: 10px;
+        line-height: 5px;
+        cursor: move;
+        margin-right: .3em;
+        font-size: 9px;
+        letter-spacing: 2px;
+        color: #a0a0a0;
+
+        &::after {
+            content: '.. .. .. .. .. .. .. .. ..';
+        }
+    }
+
+    label {
+        display: inline-block;
+        color: #D2D3D3;
+        padding: 10px;
+        cursor: inherit;
+        margin-bottom: 0;
+    }
+    
+    .actions {
+        margin-left: auto;
+        margin-right: 5px;
+        align-self: center;
+        
+        .action {           
+            padding: 0;
+            border: none;
+            font-size: .9em;
+            color: #fff;
+            background-color: inherit;
+            display: none;
+        }
+    }
+
+    &.active {
+        background-color: #5E81AC;
+        
+        label {
+            color: #fff;
+        }
+
+        .action {
+            display: inline-block;
+        }
+
+        .ico {
+            padding: 10px;
+        }
+
+        .angular-ui-tree-handle {
+            color: #fff;
+        }
+    }
+}

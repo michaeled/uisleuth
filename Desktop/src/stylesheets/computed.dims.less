@@ -1,0 +1,58 @@
+@hpadding: 5px 0;
+@wpadding: 0 2.5px;
+@dpadding: 5px;
+
+article.computed-dims {
+    display: flex;
+    flex-direction: column;
+    color: #2f2e2e;
+    font-size: .9em;
+
+    section {
+        display: flex;
+        justify-content: space-between;
+
+        div.left {
+            text-align: left;
+            display: inline;
+            align-self: center;
+            padding: @wpadding;
+        }
+        
+        div.center {
+            flex: 2;
+            text-align: center;
+            display: block;
+        }
+        
+        div.right {
+            text-align: right;
+            display: inline;
+            align-self: center;
+            padding: @wpadding;
+        }
+                
+        .desc {
+            position: absolute;
+            left: @dpadding;
+            top: 0;
+        }
+    }
+
+    section.margin {
+        position: relative;
+        background-color: #D08770;
+    }
+    
+    section.padding {
+        position: relative;
+        background-color: #EBCB8B;
+    }
+        
+    section.size {
+        position: relative;
+        justify-content: center;
+        background-color: #A3BE8C;
+        padding: @hpadding;
+    }
+}

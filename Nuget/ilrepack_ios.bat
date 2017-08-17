@@ -1,0 +1,1 @@
+ilrepack /internalize UISleuth.iOS.dll websocket-sharp.dll /out:dist/UISleuth.iOS.dll

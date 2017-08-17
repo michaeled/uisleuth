@@ -1,0 +1,23 @@
+<div ng-controller="StringDialogController as strctrl" class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">
+            {{editor.type}}
+        </small>
+    </label>
+    <div class="col-md-6 control-editor">
+        <div class="input-group">
+            <input ng-readonly="editor.readonly" placeholder="{{editor.placeholder}}" type="text" id="ss-{{$index}}" ng-change="propctrl.changed(editor)" class="form-control" ng-model="editor.value">
+            <span class="input-group-btn">
+                <button ng-click="strctrl.showDialog($event, editor)" class="btn btn-default">
+                    <span class="glyphicon glyphicon-pencil"></span>
+            </button>
+            </span>
+        </div>
+
+        <ng-if ng-if="editor.readonly">
+            <small class="help-block">readonly</small>
+        </ng-if>
+    </div>
+</div>

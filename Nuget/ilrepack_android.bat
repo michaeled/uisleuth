@@ -1,0 +1,1 @@
+ilrepack /internalize UISleuth.Android.dll websocket-sharp.dll /out:dist/UISleuth.Android.dll

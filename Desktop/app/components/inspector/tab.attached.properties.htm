@@ -1,0 +1,34 @@
+<form class="form-horizontal pad-top">
+
+    <div class="panel panel-primary">
+        <!--Panel heading-->
+        <div class="panel-heading">
+            <div class="panel-control">
+                <button ng-click="$event.preventDefault()" class="btn btn-default" data-target="#panel-aps" data-toggle="collapse">
+            <i class="demo-pli-arrow-down"></i>
+        </button>
+            </div>
+            <h3 class="panel-title">Miscellaneous</h3>
+        </div>
+
+        <!--Panel body-->
+        <div id="panel-aps" class="collapse in">
+            <div class="panel-body properties">
+                <div ng-controller="AttachedPropertiesTabController as propctrl">
+
+                    <ng-if ng-if="propctrl.editors.length > 0">
+                        <ng-repeat ng-repeat="editor in propctrl.editors | orderBy: 'name'">
+                            <ng-include ng-init="editor.index = $index" src="editor.template"></ng-include>
+                        </ng-repeat>
+                    </ng-if>
+
+                    <ng-if ng-if="propctrl.editors.length === 0">
+                        <p class="pad-hor text-center">No attached properties were found on this visual element or its parents.</p>
+                    </ng-if>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</form>

@@ -1,0 +1,34 @@
+<div class="form-group">
+    <label class="col-md-6 control-label">
+        {{editor.name}}
+        <br>
+        <small class="help-block">{{editor.type}}</small>
+    </label>
+
+    <div class="col-md-6 control-editor">
+
+        <table class="control-thickness">
+            <tr>
+                <td>
+                    <span class="glyphicon glyphicon-arrow-left"></span>
+                    <input ng-model="editor.left" type="number" class="form-control">
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-arrow-right"></span>
+                    <input ng-model="editor.right" type="number" class="form-control">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                    <input ng-model="editor.top" type="number" class="form-control">
+                </td>
+                <td>
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                    <input ng-model="editor.bottom" type="number" class="form-control ">
+                </td>
+            </tr>
+        </table>
+
+    </div>
+</div>

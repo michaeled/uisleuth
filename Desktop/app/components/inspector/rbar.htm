@@ -1,0 +1,18 @@
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab" data-target="#tab-properties">Properties</a>
+    </li>
+    <li>
+        <a data-toggle="tab" data-target="#tab-attached">Attached Properties</a>
+    </li>
+    <li>
+        <a data-toggle="tab" data-target="#tab-events">Events</a>
+    </li>
+</ul>
+
+<!--Tabs Content-->
+<div class="tab-content">
+    <ng-include id="tab-properties" class="tab-pane fade active in" src="'./components/inspector/tab.properties.htm'"></ng-include>
+    <ng-include id="tab-attached" class="pad-ver tab-pane fade" src="'./components/inspector/tab.attached.properties.htm'"></ng-include>
+    <ng-include id="tab-events" class="pad-ver tab-pane fade" src="'./components/inspector/tab.events.htm'"></ng-include>
+</div>

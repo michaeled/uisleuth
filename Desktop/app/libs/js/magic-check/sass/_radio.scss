@@ -1,0 +1,21 @@
+.magic-radio + label {
+  &:before {
+    border-radius: 50%;
+    left: -.01em;
+  }
+  &:after {
+    top: 2.5px;
+    left: 2.5px;
+    width: $magic-dot-size;
+    height: $magic-dot-size;
+    border-radius: 50%;
+    background: $magic-main-color;
+  }
+}
+
+.magic-radio:checked + label {
+  &:before {
+    border: 1px solid $magic-main-color;
+  }
+}
+

@@ -1,0 +1,178 @@
+.edit-tip {
+    font-size: .6em;
+    cursor: help;
+}
+
+#mm-body {
+    display: flex;
+
+    .dropdown-menu {
+        cursor: pointer;
+    }
+    
+    .new {
+        color: #fff;
+        padding: 5px 0px 5px 0px;
+            
+        input[type='text'] {
+            background-color: #fff;
+        }
+    }
+
+    /* all but the add buttons */
+    table, .list-group-item {
+        .dropdown-menu {
+            min-width: 110px;
+        }
+    }
+
+    table {
+        tr td {
+            color: #758697;
+        }
+        
+        th {
+            color: #2b425b;
+            font-weight: 600;
+            border-bottom: 0;
+            padding-top: 0;
+        }
+    
+        tbody tr:hover:not(.sysmsg) {
+            background-color: rgba(0, 0, 0, 0.05);
+            cursor: pointer !important;
+        }
+
+        tr.active td {
+            background-color: #7AA0C7 !important;
+            color: #fff;
+        }
+
+        .actions {
+            visibility: hidden;
+        }
+
+        .active .actions {
+            visibility: visible;
+        }
+
+        tbody>tr:first-of-type td {
+            border-top: 0;
+        }
+    }
+
+    #mm-visualelements-container {
+        flex: 3;
+
+        .mm-visualelements-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mm-visualelements-body {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            padding: 10px;
+            flex: 2;
+            overflow: auto;
+            height: 348px;
+        }
+
+        form {
+            input { height: 34px; }
+
+            select {
+                background-color: #fff;
+                padding: 6px;
+                height: 34px;
+            }
+        }
+    }
+
+    #mm-types-container {
+        flex: 2;
+        max-width: 355px;
+
+        .mm-types-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mm-types-body {
+            display: flex; 
+            flex: 1;
+            overflow: auto;
+            height: 350px;
+        }
+    }
+
+    #mm-categories-container {
+        flex-direction: column;
+        display: flex;
+        flex-grow: 2;
+
+        .grow {
+            flex-direction: column;
+            display: flex;
+            flex-grow: 2;
+        }
+
+        .mm-categories-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .mm-categories-body {
+            display: flex; 
+            flex: 1;
+        }
+
+        .mm-categories {
+            width: 200px;
+            max-width: 200px;
+
+            overflow-y: auto;
+            overflow-x: hidden;
+
+            margin-bottom: 0; 
+            background-color: #fff; 
+            border: 1px solid #ddd !important; 
+            flex: 1;
+
+            .list-group-item {
+                padding: 10px;
+               
+               .actions {
+                   visibility: hidden;
+               }
+
+               &.active {
+                    .actions {
+                        visibility: visible;
+                    }
+                }
+
+                &:not(.active):hover {
+                    cursor: pointer;
+                    background-color: rgba(0,0,0,0.05);
+                }
+            }
+        }
+
+        #mm-properties {
+            flex: 2;
+            height: 348px;
+
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-right: 0; 
+            padding: 10px; 
+            overflow-y: scroll;
+            overflow-x: auto;
+        }
+    }
+}
+

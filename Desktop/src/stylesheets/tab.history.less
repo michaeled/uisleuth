@@ -1,0 +1,33 @@
+#tab-history {
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+
+        li {
+            padding: 10px 0;
+            padding-left: 10px;
+            margin-bottom: 15px;
+
+            strong {
+                font-weight: 600;
+            }
+
+            &.created {
+                border-left: 3px solid #A3BE8C;
+            }
+
+            &.deleted {
+                border-left: 3px solid #BF616A;
+            }
+            
+            &.changed {
+                border-left: 3px solid #81A1C1;
+            }
+
+            &.moved {
+                border-left: 3px solid #B48EAD;
+            }
+        }
+    }
+}

@@ -1,0 +1,12 @@
+<ul class="nav nav-tabs">
+    <li class="active">
+        <a data-toggle="tab" data-target="#tab-vt">Visual Outline</a>
+    </li>
+    <li>
+        <a data-toggle="tab" data-target="#tab-history">History</a>
+    </li>
+</ul>
+<div class="tab-content pad-hor pad-btm">
+    <ng-include id="tab-vt" class="tab-pane fade active in" src="'./components/inspector/tab.visual.tree.htm'"></ng-include>
+    <ng-include id="tab-history" class="tab-pane fade" src="'./components/inspector/tab.history.htm'"></ng-include>
+</div>

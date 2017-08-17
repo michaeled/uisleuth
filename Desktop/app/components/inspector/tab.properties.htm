@@ -1,0 +1,58 @@
+<div ng-controller="PropertiesTabController as propctrl">
+
+    <div style="padding-left: 5px" class="pad-hor mar-btm">
+        <div class="btn-group">
+            <button ng-click="propctrl.refresh()" data-container="body" data-toggle="tooltip" title="Refresh" class="btn btn-transparent">
+                <span class="glyphicon glyphicon-refresh"></span>
+            </button>
+        </div>
+    </div>
+
+    <div class="pad-hor">
+        <div class="searchbox">
+            <input ng-model="propctrl.searchtext" type="text" class="form-control" placeholder="Search...">
+        </div>
+    </div>
+
+    <form class="form-horizontal pad-top">
+
+        <!-- category jump list -->
+        <ng-include src="'components/inspector/panels/category.jumplist.htm'"></ng-include>
+
+        <!-- overview panel -->
+        <ng-include src="'components/inspector/panels/overview.htm'"></ng-include>
+
+        <div ng-repeat="category in propctrl.showableCategories | orderBy: 'name'" class="panel panel-primary">
+
+            <!--Panel heading-->
+            <div id="panel-heading-{{category.name}}" class="panel-heading">
+                <div class="panel-control">
+                    <button ng-click="$event.preventDefault()" class="btn btn-default" data-target="#panel-{{category.name}}" data-toggle="collapse">
+                        <i class="demo-pli-arrow-down"></i>
+                    </button>
+                </div>
+                <h3 class="panel-title">{{category.name}}</h3>
+            </div>
+
+            <!--Panel body-->
+            <div id="panel-{{category.name}}" class="collapse in">
+                <div class="panel-body properties">
+                    <ng-repeat ng-repeat="editor in filtered = (category.editors | orderBy: 'name' | filter: {name: propctrl.searchtext})">
+                        <ng-include ng-init="editor.index = $index" src="editor.template"></ng-include>
+                    </ng-repeat>
+
+                    <ng-if ng-if="filtered.length === 0">
+                        <p class="text-center">
+                            No properties were found that match your criteria. Only matching property names are returned.
+                        </p>
+
+                        <p class="text-center">
+                            <span class="resetfilter" ng-click="propctrl.searchtext = undefined">Reset filter</span>
+                        </p>
+                    </ng-if>
+                </div>
+            </div>
+        </div>
+    </form>
+
+</div>

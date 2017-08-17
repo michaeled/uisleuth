@@ -1,0 +1,157 @@
+#ultrabar-home {
+    background: #222d32;
+
+    ul li[disabled] {
+        color: gray;
+        cursor: default;
+    }
+}
+
+#ultrabar-insert {
+    .fullname,
+    .shortname {
+        display: block;
+    }
+
+    .fullname {
+        font-size: .9em;
+        margin-top: 5px;
+        color: #737373;
+    }
+
+    .search {
+        padding: 1em;
+    }
+}
+
+.ultrabar {
+    z-index: 100;
+    display: inline-block;
+    max-width: 765px;
+
+    color: #fff;
+
+    overflow: hidden;
+    -webkit-transition: all 70ms cubic-bezier(0.455, 0.030, 0.515, 0.955);
+    box-shadow: 0px 0px 20px -5px rgba(0,0,0,0.75);
+
+    ul {
+        padding: 0;
+        margin: 0;
+        list-style-type: none;
+
+        li {
+            cursor: pointer;
+            display: inline-block;
+            padding: 2em;
+            text-align: center;
+
+            .ico,
+            .desc {
+                display: block;
+            }
+
+            .ico {
+                margin-bottom: .5em;
+            }
+
+            &:hover:not([disabled]) {
+                background: lighten(#222d32, 5%);
+            }
+        }
+    }
+
+    .page {
+        display: none;
+        background: #2E3440;
+
+        .tab-container {
+            display: flex;
+        }
+
+        .page-body {
+            max-height: 30em;
+            border-top: 1px solid #5d5d5d;
+            color: #D2D3D3;
+
+            .tabs {
+                min-width: 10em;
+                background: #434C5E;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.16),0 2px 10px 0 rgba(0,0,0,0.12);
+
+                ul li {
+                    text-align: left;
+                    display: block;
+                    padding: 1em;
+
+                    &:hover {
+                        background: lighten(#434C5E, 5%);
+                    }
+
+                    &.active {
+                        background: #5E81AC;
+                    }
+                }
+            }
+
+            .tab-content {
+                overflow-y: scroll;
+
+                .item {
+                    padding: 1em;
+                    cursor: pointer;
+                    -webkit-column-break-inside: avoid;
+
+                    &:hover {
+                        background: lighten(#2E3440, 5%)
+                    }
+                }
+
+                .item:after {
+                    content: '';
+                    display: block;
+                }
+            }
+        }
+    }
+
+    .page.active {
+        display: block;
+    }
+
+    .create-stacklayout,
+    .create-grid {
+        padding: 5px;
+        
+        table {
+            td {
+                padding: 5px;
+            }
+        }
+
+        footer {
+            padding: 5px;
+            padding-top: 10px;
+            text-align: right;
+
+            button:first-of-type {
+                padding-right: 5px;
+            }
+
+            button.btn-primary {
+                background: #8aa970;
+                border: 1px solid #8aa970;
+                outline: 0;
+
+                &:hover {
+                    background: #6b8853;
+                    border: 1px solid #6b8853;
+                }
+            }
+        }
+    }
+
+    .create-stacklayout {
+        padding: 15px;
+    }
+}

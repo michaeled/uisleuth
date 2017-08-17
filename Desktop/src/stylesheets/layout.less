@@ -1,0 +1,93 @@
+#lbar, #rbar {
+    padding-top: 10px;
+    z-index: 1;
+
+    .bar-container {
+        position: relative;
+        min-height: 100%;
+
+        .rail {
+            position: absolute;
+            top: -10px;
+            bottom: 0;
+            width: 7px;  
+            margin: 0;
+
+            .grip {
+                z-index: 100;
+                position: absolute;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                flex: 0 0 auto;
+                width: 7px;
+                background: transparent;
+                cursor: col-resize;  
+            }   
+        }
+    }
+}
+
+#lbar {
+    box-shadow: 5px 0px 21px -11px rgba(0, 0, 0, 0.75);
+    background-color: #2E3440;
+    position: fixed;
+    left: 0;
+    top: 40px;
+    bottom: 35px;
+    width: 350px;
+    overflow-y: auto;
+
+    .rail {
+        right: 0;
+    }
+}
+
+#rbar {
+    box-shadow: -5px 0px 21px -11px rgba(0, 0, 0, 0.75);
+    width: 350px;
+    background-color: #2E3440;
+    position: fixed;
+    right: 0;
+    top: 40px;
+    bottom: 35px;
+    overflow-y: auto;
+
+    .rail {
+        left: 0;
+    }
+}
+
+#footer {
+    color: #fff;
+    padding-top: 0;
+    line-height: 35px;
+}
+
+#statusbar {
+    width: 100%;
+    border-top: 1px solid rgba(0, 0, 0, 0.11);
+    background-color: #5E81AC;
+
+    #console-btn {
+        background: transparent;
+        color: #fff;
+        border: 0;
+    }
+}
+
+#statusbar.error {
+    color: #fff;
+    background-color: #BF616A !important;
+}
+
+.nav > li > a[disabled] {
+    cursor: default;
+}
+
+@media only screen and (max-width: 1000px) {
+    #lbar,
+    #rbar {
+        display: none;
+    }
+}
