@@ -108,7 +108,7 @@ Now that we're seeing Xamarin.Forms target WPF, GTK#, and macOS a whole new leve
 # Documentation
 
 This project site is a work in progress. 
-I currently have minimal documentation explaining the API. However, the majority of the wiki pages I write in the beginning will cover the workflow engine.
+I currently have minimal documentation explaining the API. However, the majority of the wiki pages I write in the beginning will cover the workflow engine. Keep coming back for more info.
 
 You can find all the documentation on the [project's Wiki](https://github.com/michaeled/uisleuth/wiki).
 
