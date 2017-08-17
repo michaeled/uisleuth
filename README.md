@@ -1,6 +1,6 @@
 <p align="center">
   <a href="http://www.uisleuth.com">
-    <img src="docs/images/logo.png" width="128" height="128">
+    <img src="assets/images/logo.png" width="128" height="128">
   </a>
 
   <h3 align="center">UI Sleuth</h3>
