@@ -1,10 +1,7 @@
 .connect-container {
   color: #989898;
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  height: 100vh;
-  transform: translateY(-4em);
+  overflow-y: auto;
+  height: 100%;
 
   .no-devices a {
     text-decoration: underline;
@@ -18,9 +15,10 @@
   }  
   
   .connect-widget {
+    padding: 40px 0;
     text-align: center;
     width: 360px;
-    min-width: 360px;
+    margin: 0 auto;
 
     .logo {
       width: 175px;
