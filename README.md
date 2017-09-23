@@ -38,24 +38,16 @@ UI Sleuth is a Xamarin.Forms debugging tool. If you’ve ever made a web site, i
   <small>Inspecting a ViewModel</small>
 </p>
 
-# What can you do with this code?
+## Overview
 
-UI Sleuth could _easily_ be more than a "UI Inspector." I can see the .NET library powering best practice analyzers, UI automation engines, remote app viewer services, and more. If you want to ditch the electron desktop client, go for it. Create a new, custom app that communicates with your app server. 
+UI Sleuth is composed of two components: the desktop client and the design server. The desktop client communicates with your mobile app via WebSockets and a simple JSON protocol. Once you understand that, you know that the desktop client and the mobile app aren't irrevocably tied together. 
 
-**my favorite idea**
-
-Peek at the top-level foldered named "Server." It contains a simple implementation for creating a remote tunneling service to join the desktop client and mobile app together. I never finished this project, but it was going to allow you to easily connect and inspect a beta testers device, while they're encountering a bug!
-
-## How can it do that?
-
-The desktop client communicates with your mobile app via WebSockets and a simple JSON protocol. Once you understand that, you know that the desktop client and mobile app aren't irrevocably tied together. 
-
-The library that you add to your Xamarin.Forms application is a workflow engine. It's implemented using a `BlockingCollection` that dispatches incoming messages to listeners, called `Reaction`s. Incoming message types are directly associated to a reaction. When the corresponding reaction is determined, its instantiated and invoked. The implementing reaction can read the incoming message, take an action, and return a response. 
+The library that you add to your Xamarin.Forms application is a workflow engine. It's implemented using a `BlockingCollection` that dispatches incoming messages to listeners, called `Reaction`s. Incoming message types are directly associated to a reaction. When the corresponding reaction is determined, its instantiated and invoked. The implementing reaction can read the incoming message, take an action, and return a response to the client.
 
 Here's an example.
-Below is the code handles the "Take Screenshot Request" from the desktop client.
+The following code responds to a screenshot request from the desktop client.
 
-### 1) Define the request and response* types
+### 1) Define the request and response types (server code)
 
 ```
 namespace UISleuth.Messages
@@ -69,7 +61,7 @@ namespace UISleuth.Messages
 }
 ```
 
-### 2) Create a custom reaction class
+### 2) Create a custom reaction class (server code)
 
 ```
     internal class ScreenShotReaction : Reaction
@@ -96,13 +88,13 @@ namespace UISleuth.Messages
     }
 ```
 
-### 3) Associate the request type to the reaction
+### 3) Associate the request type to the reaction (server code)
 
 ```
 Reaction.Register<ScreenShotRequest, ScreenShotReaction>();
 ```
 
-### 4) Request a screenshot via WebSocket
+### 4) Request a screenshot via WebSocket (client code)
 
 ```
 websocket.send("{action: 'ScreenShotRequest'}");
@@ -122,9 +114,6 @@ Now that we're seeing Xamarin.Forms target WPF, GTK#, and macOS a whole new leve
 # Documentation
 
 This project site is a work in progress. 
-I currently have minimal documentation explaining the API. However, the majority of the wiki pages I write in the beginning will cover the workflow engine. Keep coming back for more info.
-
 You can find all the documentation on the [project's Wiki](https://github.com/michaeled/uisleuth/wiki).
 
-Enjoy!
 [@mykldavis](https://twitter.com/mykldavis)
