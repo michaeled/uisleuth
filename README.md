@@ -44,7 +44,7 @@ UI Sleuth is composed of two components: the desktop client and the design serve
 
 The library that you add to your Xamarin.Forms application is a workflow engine. It's implemented using a `BlockingCollection` that dispatches incoming messages to listeners, called `Reaction`s. Incoming message types are directly associated to a reaction. When the corresponding reaction is determined, its instantiated and invoked. The implementing reaction can read the incoming message, take an action, and return a response to the client.
 
-As an example, the following is used to respond to a screenshot request from the desktop client.
+As an example, the code following is used to respond to a screenshot request from the desktop client.
 
 ### 1) Define the request and response types (server code)
 
