@@ -19,7 +19,7 @@ export default class StatusbarController {
         PubSub.publish(ErrorEvent, {code, reason});
     }
 
-    constructor($scope, panels) {
+    constructor($scope, panels, trss) {
         this.message = DefaultMessage;
         this.showError = false;
         this._panels = panels;

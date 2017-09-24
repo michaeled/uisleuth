@@ -11,6 +11,7 @@ import MessageDispatcherService from './components/connections/MessageDispatcher
 import EditorFactory from './components/inspector/EditorFactory';
 import CategoryGroupFactory from './components/inspector/CategoryGroupFactory';
 import DeviceDialogFactory from './components/device/DeviceDialogFactory';
+import TestRunnerStackService from './components/test-runner/TestRunnerStackService';
 
 import MainController from './components/global/MainController';
 import StatusbarController from './components/footer/StatusbarController';
@@ -26,7 +27,7 @@ import TypesController from './components/header/TypesController';
 import OverviewPanelController from './components/inspector/panels/OverviewPanelController';
 import StringDialogController from './components/inspector/editors/StringDialogController';
 import WebViewSourceDialogController from './components/inspector/editors/WebViewSourceDialogController';
-import ConsoleController from './components/console/ConsoleController';
+import ConsoleController from './components/footer/ConsoleController';
 import UltraBarController from './components/inspector/UltraBarController';
 import VisualTreeTabToolbarController from './components/inspector/VisualTreeTabToolbarController';
 import DisplayPanelController from './components/inspector/panels/DisplayPanelController';
@@ -119,7 +120,8 @@ app
     .service("AutoUpdaterService", AutoUpdaterService)
     .service("AnnouncementService", AnnouncementService)
     .service("PollService", PollService)
-    .service("XamlChangeTrackerService", XamlChangeTrackerService);
+    .service("XamlChangeTrackerService", XamlChangeTrackerService)
+    .service("TestRunnerStackService", TestRunnerStackService);
 
 // constants
 app.constant('uisleuth-events', {
@@ -169,7 +171,7 @@ app.config(['panelsProvider', function(panelsProvider) {
             id: 'console',
             position: 'bottom',
             size: '33%',
-            templateUrl: './components/console/console.htm',
+            templateUrl: './components/footer/console.htm',
             controller: 'ConsoleController as cpctrl',
             openCallbackFunction: 'cpctrl.showing'
         })

@@ -2,17 +2,20 @@
 
 <script>
     $('#terminalhost').terminal({
-        echo: function(arg1) {
-            this.echo(arg1);
-        },
-        calc: {
-            add: function(a, b) {
-                this.echo(a + b);
-            },
-            sub: function(a, b) {
-                this.echo(a - b);
+        "run-test": function(script) {
+                const th = document.getElementById("terminalhost");
+                let scope = angular.element(th).scope();
+
+                if (scope.cpctrl) {
+                    scope.cpctrl.run(script)
+                    .then(r => {
+                        this.echo(r);
+                    })
+                    .catch(r => {
+                        this.error(r);
+                    });
+                }
             }
-        }
     }, {
         prompt: '>',
         greetings: `
@@ -23,8 +26,6 @@
 ╚██████╔╝██║    ███████║███████╗███████╗╚██████╔╝   ██║   ██║  ██║
  ╚═════╝ ╚═╝    ╚══════╝╚══════╝╚══════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝           
 
- Version 1.0 (R1); Michael Davis 2016.
- Type 'help' for more information.                                   
 `
     });
 </script>

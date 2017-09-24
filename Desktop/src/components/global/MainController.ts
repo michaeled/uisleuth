@@ -7,8 +7,10 @@ import ConnectionService from '../connections/ConnectionService';
 import MessageDispatcherService from '../connections/MessageDispatcherService';
 import AutoUpdaterService from './AutoUpdaterService';
 import AnnouncementService from '../connections/AnnouncementService';
+import TestRunnerStackService from '../test-runner/TestRunnerStackService';
 
 export default class MainController {
+    
     public static $inject = [
         "$scope",
         "ConnectionService",
@@ -18,11 +20,16 @@ export default class MainController {
         "AnnouncementService"
     ];
 
-    constructor(private $scope, private connection: ConnectionService, private messages: MessageDispatcherService,
-        private elements: DesignerVisualElementsService, auto: AutoUpdaterService, private announcement: AnnouncementService) {
+    constructor(
+        private $scope,
+        private connection: ConnectionService, 
+        private messages: MessageDispatcherService,
+        private elements: DesignerVisualElementsService, 
+        auto: AutoUpdaterService, 
+        private announcement: AnnouncementService) {
 
-        auto.init();
-        console.trace("main controller init.");
+            auto.init();
+            console.trace("main controller init.");
     }
 
     public get connected() {
