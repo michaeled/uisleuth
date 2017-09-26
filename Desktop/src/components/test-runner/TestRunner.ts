@@ -1,19 +1,20 @@
-const { VM } = require('vm2');
+const {VM} = require('vm2');
 const fs = require('fs-extra')
-const util = require('util');
 
 import TestRunnerStackService from './TestRunnerStackService';
+import ITestRunnerOptions from './ITestRunnerOptions';
+import TestRunnerSandbox from './TestRunnerSandbox';
 
 export default class TestRunner {
-    constructor(
+    constructor (
         private stackService: TestRunnerStackService,
-        private terminalEchoCb,
-        private terminalErrorCb
+        private options: ITestRunnerOptions
     ) {
     }
 
-    run(file) {
-        const vm = this.createVM();
+    run(file: string) {
+        const sandbox = new TestRunnerSandbox(this.options);
+        const vm = this.createVM(sandbox);
 
         return new Promise((resolve, reject) => {
 
@@ -24,14 +25,15 @@ export default class TestRunner {
                     this.log(`The file ${file} was not found or you do not have read access.`, reject)
                 }
                 else {
-                    fs.readFile(file, "utf8", (err, data) => {
+                    fs.readFile(file, 'utf8', (err, data) => {
                         if (err) {
                             this.log(`Unable to read ${file}.`, reject);
                         }
                         else {
-                            this.log(`${file} found. executing.`);
+                            this.log(`${file} found. Executing.`);
 
                             const output = vm.run(data);
+
                             if (output) {
                                 this.log(output);
                             }
@@ -44,33 +46,12 @@ export default class TestRunner {
         });
     }
 
-    private createVM() {
-        const self = this;
+    private createVM(sandbox: TestRunnerSandbox) {
+        const options = {
+            sandbox
+        };
 
-        const vm = new VM({
-            sandbox: {
-
-                assert: function(condition, msg) {
-                    if (!condition) {
-                        self.terminalErrorCb(msg);
-                    }
-                },
-
-                log: function(msg) {
-                    let output = msg;
-
-                    if (typeof msg === "object") {
-                        output = util.inspect(msg, { depth: 4 });
-                    }
-
-                    self.terminalEchoCb(output);
-                },
-
-                uisleuth() {
-                    return self.getNextObjectModel();
-                }
-            }
-        });
+        const vm = new VM(options);
 
         return vm;
     }
@@ -83,9 +64,5 @@ export default class TestRunner {
         if (cb) {
             cb(output);
         }
-    }
-
-    private getNextObjectModel() {
-        return this.stackService.pop();
     }
 }
