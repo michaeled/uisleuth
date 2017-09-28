@@ -10,6 +10,10 @@ export default class TestRunnerStackService {
             this.push(d);
         });
 
+        let gwpToken = PubSub.subscribe(MessageDispatcherService.GetWidgetPropertiesResponse, (e, d) => {
+            console.log(d);
+        });
+
         console.trace("init TestRunnerStackService.")
     }
 

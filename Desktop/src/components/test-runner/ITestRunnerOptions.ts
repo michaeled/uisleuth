@@ -1,4 +1,4 @@
 export default interface ITestRunnerOptions {
-    errorCallback(string): void;
-    logCallback(string): void;
+    error(string): void;
+    log(string): void;
 }

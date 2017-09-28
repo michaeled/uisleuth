@@ -6,10 +6,12 @@ import ITestRunnerOptions from './ITestRunnerOptions';
 import TestRunnerSandbox from './TestRunnerSandbox';
 
 export default class TestRunner {
+    private stackService: TestRunnerStackService;
+
     constructor (
-        private stackService: TestRunnerStackService,
         private options: ITestRunnerOptions
     ) {
+        this.stackService = new TestRunnerStackService();
     }
 
     run(file: string) {
@@ -47,12 +49,7 @@ export default class TestRunner {
     }
 
     private createVM(sandbox: TestRunnerSandbox) {
-        const options = {
-            sandbox
-        };
-
-        const vm = new VM(options);
-
+        const vm = new VM({sandbox});
         return vm;
     }
 

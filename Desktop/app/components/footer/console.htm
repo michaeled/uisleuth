@@ -1,31 +1,8 @@
-<div id="terminalhost"></div>
+<div id="consolehost"></div>
 
 <script>
-    $('#terminalhost').terminal({
-        "run-test": function(script) {
-                const th = document.getElementById("terminalhost");
-                let scope = angular.element(th).scope();
-
-                if (scope.cpctrl) {
-                    scope.cpctrl.run(script)
-                    .then(r => {
-                        this.echo(r);
-                    })
-                    .catch(r => {
-                        this.error(r);
-                    });
-                }
-            }
-    }, {
-        prompt: '>',
-        greetings: `
-██╗   ██╗██╗    ███████╗██╗     ███████╗██╗   ██╗████████╗██╗  ██╗
-██║   ██║██║    ██╔════╝██║     ██╔════╝██║   ██║╚══██╔══╝██║  ██║
-██║   ██║██║    ███████╗██║     █████╗  ██║   ██║   ██║   ███████║
-██║   ██║██║    ╚════██║██║     ██╔══╝  ██║   ██║   ██║   ██╔══██║
-╚██████╔╝██║    ███████║███████╗███████╗╚██████╔╝   ██║   ██║  ██║
- ╚═════╝ ╚═╝    ╚══════╝╚══════╝╚══════╝ ╚═════╝    ╚═╝   ╚═╝  ╚═╝           
-
-`
-    });
+    const ch = document.getElementById("consolehost");
+    const cpctrl = angular.element(ch).scope().cpctrl;
+    
+    cpctrl.onReady();
 </script>

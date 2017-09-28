@@ -6,12 +6,11 @@ export default class TestRunnerSandbox {
     constructor (
         private options: ITestRunnerOptions
     ) {
-
     }
     
     public assert = (condition, msg) => {
         if (!condition) {
-            this.options.errorCallback(msg);
+            this.options.error(msg);
         }
     };
 
@@ -22,6 +21,6 @@ export default class TestRunnerSandbox {
             output = util.inspect(msg, { depth: 3 });
         }
 
-        this.options.logCallback(output);
+        this.options.log(output);
     }
 }

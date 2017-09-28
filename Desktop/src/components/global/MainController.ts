@@ -7,7 +7,6 @@ import ConnectionService from '../connections/ConnectionService';
 import MessageDispatcherService from '../connections/MessageDispatcherService';
 import AutoUpdaterService from './AutoUpdaterService';
 import AnnouncementService from '../connections/AnnouncementService';
-import TestRunnerStackService from '../test-runner/TestRunnerStackService';
 
 export default class MainController {
     
@@ -25,7 +24,7 @@ export default class MainController {
         private connection: ConnectionService, 
         private messages: MessageDispatcherService,
         private elements: DesignerVisualElementsService, 
-        auto: AutoUpdaterService, 
+        private auto: AutoUpdaterService, 
         private announcement: AnnouncementService) {
 
             auto.init();
