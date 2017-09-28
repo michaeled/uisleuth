@@ -4,24 +4,25 @@ import MessageDispatcherService from '../connections/MessageDispatcherService';
 
 export default class TestRunnerStackService {
     private stack = [];
+    private gvtToken;
+    private gwpToken;
 
     constructor() {
-        let gvtToken = PubSub.subscribe(MessageDispatcherService.GetVisualTreeResponse, (e, d) => {
-            this.push(d);
+        this.gvtToken = PubSub.subscribe(MessageDispatcherService.GetVisualTreeResponse, (e, d) => {
+            console.log(d);
         });
 
-        let gwpToken = PubSub.subscribe(MessageDispatcherService.GetWidgetPropertiesResponse, (e, d) => {
+        this.gwpToken = PubSub.subscribe(MessageDispatcherService.GetWidgetPropertiesResponse, (e, d) => {
             console.log(d);
         });
 
         console.trace("init TestRunnerStackService.")
     }
 
-    push(data) {
-        this.stack.push(data);
-    }
+    cleanup() {
+        PubSub.unsubscribe(this.gvtToken);
+        PubSub.unsubscribe(this.gwpToken);
 
-    pop() {
-        return this.stack[0];
+        console.trace("unsubscribed from TestRunnerStackService events.")
     }
 }

@@ -15,10 +15,9 @@ export default class TestRunner {
     }
 
     run(file: string) {
-        const sandbox = new TestRunnerSandbox(this.options);
-        const vm = this.createVM(sandbox);
-
         return new Promise((resolve, reject) => {
+            const sandbox = new TestRunnerSandbox(this.options);
+            const vm = this.createVM(sandbox);
 
             this.log(`Opening ${file}.`);
 
@@ -44,6 +43,8 @@ export default class TestRunner {
                         }
                     });
                 }
+
+                this.stackService.cleanup();
             });
         });
     }

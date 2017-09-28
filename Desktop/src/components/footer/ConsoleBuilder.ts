@@ -4,8 +4,10 @@ import TestRunner from '../test-runner/TestRunner';
 import ITestRunnerOptions from '../test-runner/ITestRunnerOptions';
 
 export default class ConsoleBuilder {
+    public static elId: string = "consolehost";
+
     public static get console() {
-        return $("#consolehost").terminal();
+        return $(`#${ConsoleBuilder.elId}`).terminal();
     }
 
     constructor() {
@@ -15,7 +17,7 @@ export default class ConsoleBuilder {
     }
 
     private configure(options) {
-        return $("#consolehost").terminal(options, {
+        return $(`#${ConsoleBuilder.elId}`).terminal(options, {
             prompt: '>',
             greetings: `
 ██╗   ██╗██╗    ███████╗██╗     ███████╗██╗   ██╗████████╗██╗  ██╗
