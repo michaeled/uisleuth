@@ -21,6 +21,11 @@
     </ol>
 </script>
 
+<div class="mar-ver" ng-controller="PageSelectController as psc">
+    <select class="form-control">
+    </select>
+</div>
+
 <div ng-controller="VisualTreeTabController as vt">
     <ng-if ng-if="vt.tree">
         <ng-include src="'./components/inspector/tab.visual.tree.toolbar.htm'"></ng-include>

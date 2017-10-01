@@ -37,6 +37,7 @@ import DevicePropertiesController from './components/device/DevicePropertiesCont
 import DeviceProcessorController from './components/device/DeviceProcessorController';
 import NavBarController from './components/header/NavBarController';
 import WorkspaceController from './components/inspector/WorkspaceController';
+import PageSelectController from './components/inspector/PageSelectController';
 
 import DialogDirective from './components/global/directives/DialogDirective';
 import LastDirective from './components/global/directives/LastDirective';
@@ -90,7 +91,8 @@ app
     .controller("DevicePropertiesController", DevicePropertiesController)
     .controller("DeviceProcessorController", DeviceProcessorController)
     .controller("NavBarController", NavBarController)
-    .controller("WorkspaceController", WorkspaceController);
+    .controller("WorkspaceController", WorkspaceController)
+    .controller("PageSelectController", PageSelectController);
 
 // directives
 app
