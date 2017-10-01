@@ -34,6 +34,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Messages\DeleteWidgetRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\DesktopReady.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\GetBindingContextRequest.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Messages\GetNavigablePagesRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\GetVisualElementsRequest.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\ServerStoppedOk.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Messages\DisconnectRequest.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Reactions\DesktopReadyReaction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Reactions\GestureReaction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Reactions\GetBindingContextReaction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Reactions\GetNavigablePagesReaction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Reactions\GetVisualElementsReaction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Reactions\InspectorReaction.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Reactions\SetDeviceOrientationReaction.cs" />

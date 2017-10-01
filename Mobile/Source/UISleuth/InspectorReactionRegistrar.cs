@@ -47,6 +47,7 @@ namespace UISleuth
             InspectorReaction.Register<GetBindingContextRequest, GetBindingContextReaction>(page);
             InspectorReaction.Register<TraceEventsRequest, TraceEventsReaction>(page);
             InspectorReaction.Register<SetDeviceOrientationRequest, SetDeviceOrientationReaction>(page);
+            InspectorReaction.Register<GetNavigablePagesRequest, GetNavigablePagesReaction>(page);
 
             Reaction.Register<ScreenShotRequest, ScreenShotReaction>();
         }
